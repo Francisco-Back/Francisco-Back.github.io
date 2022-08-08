@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'UMGFIFA2022';
+  show:boolean = true;
 }
