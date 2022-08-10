@@ -5,24 +5,37 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
 </head>
-<body>
+<body background="https://static.vecteezy.com/system/resources/previews/003/368/024/non_2x/football-for-banner-soccer-championship-2022-in-qatar-vector.jpg" >
+    <div class="container-fluid">
+    <h2 class="featurette-heading">Las 32 selecciones clasificadas representado a su pais</h2>
+    <p class="blockquote featurette-p">Después de una larga eliminatoria quedaron definidas las 32 selecciones invitadas a Qatar 2022, conoce los paises aqui:</p>
+    </div>
     <hr class="featurette-divider">
-      
-    <div class="row featurette offset-md-1">
-      <div class="col-md-7 order-md-2">
-        <h2 class="featurette-heading fw-normal lh-1">Japón <span class="text-muted"></span></h2>
+<div *ngFor="let pais of paises; index as i">
+    <div class="row offset-md-4 w-50">
+      <div class="col-md-7 order-md-2 div-1">
+        <h2 class="featurette-heading fw-normal lh-1">{{pais.nombre}} <span class="text-muted"></span></h2>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Jugadores en Planilla</th>
+                    <th scope="col">Ranking FIFA</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{pais.jugadores}}</td>
+                    <td>{{pais.numfifa}}</td>
+                </tr>
+            </tbody>
+        </table>
       </div>
-      <div class="col-md-5 order-md-1">
-        <svg class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"  width="150" height="300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 500x500" preserveAspectRatio="xMidYMid slice" focusable="false">
-            <title>Japon</title>
-            <rect width="100%" height="100%" fill="#eee"/>
-            <image xlink:href="https://www.sitographics.com/enciclog/banderas/asia/image_2012/Japon.gif"  width=100% height=100%  />      
-        </svg>
-
+      <div class="col-md-5 order-md-1 container-fluid">
+        <img class="img-fluid"  max-width="150" max-height="150" src={{pais.bandera}}/>
       </div>
     </div>
     <hr class="featurette-divider">
+</div>
 </body>
 </html>
