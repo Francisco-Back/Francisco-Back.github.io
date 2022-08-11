@@ -1,9 +1,11 @@
 
 .container{
-    justify-content: center;
-    flex-direction: row;
     font-family: Arial;
     font-size: x-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 table{
@@ -36,8 +38,11 @@ h1{
 }
 
 .item{
-    float: left;
-    width: 400px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 380px;
     padding: 30px;
 }
 
