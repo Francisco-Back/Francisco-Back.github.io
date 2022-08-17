@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { EncabezadoComponent } from './encabezado/encabezado.component';
 import { FooterComponent } from './footer/footer.component';
+import { GroupComponent } from './group/group.component';
 import { HomeComponent } from './home/home.component';
 import { PaisesComponent } from './paises/paises.component';
 
@@ -15,7 +16,8 @@ import { PaisesComponent } from './paises/paises.component';
     EncabezadoComponent,
     FooterComponent,
     HomeComponent,
-    PaisesComponent
+    PaisesComponent,
+    GroupComponent
   ],
   imports: [
     BrowserModule,
