@@ -26,10 +26,15 @@ body {
 
   }
 
-    .featurette-heading {
+    h2 {
       font-size: 40px;
       text-align: center;
       color: #ffffff;
+    }
+    .featurette-heading {
+      font-size: 40px;
+      text-align: center;
+      color:#56042C;
     }
     .featurette-p {
         font-size: 25px;
