@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+.body-bk{
+    border-collapse: collapse;
+    background-image: url("https://static.vecteezy.com/system/resources/previews/003/368/024/non_2x/football-for-banner-soccer-championship-2022-in-qatar-vector.jpg");
+    background: center center cover no-repeat fixed;
+}
+
