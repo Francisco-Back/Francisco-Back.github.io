@@ -10,6 +10,7 @@ import { PaisesComponent } from './paises/paises.component';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { PartidosComponent } from './partidos/partidos.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
     FooterComponent,
     HomeComponent,
     PaisesComponent,
-    GroupComponent
+    GroupComponent,
+    PartidosComponent
   ],
   imports: [
     BrowserModule,
