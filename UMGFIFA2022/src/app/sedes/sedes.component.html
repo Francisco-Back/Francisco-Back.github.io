@@ -8,13 +8,45 @@
 </head>
 <body class="body-bk">
 <div class="container-fluid">
+  <h2 class="featurette-heading1">Qatar 2022</h2>
+  <p class="blockquote featurette-p">Qatar es el Pais Sede de la Copa Mundial FIFA 2022</p>
+</div>
+<hr class="featurette-divider">
+<div *ngFor="let sedePais of sedesPais; index as i">
+  <div class="row offset-md-3 w-50">
+    <div class="col-md-auto order-md-2 div-1">
+      <h2 class="featurette-heading fw-normal lh-1">{{sedePais.nombre}} <span class="text-muted"></span></h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Descripción</th>
+          <th scope="col">Poblacion</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{sedePais.descripcion}}</td>
+          <td>{{sedePais.poblacion}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-8 order-md-1 container-fluid">
+      <img class="img-thumbnail"  alt="Responsive image" src={{sedePais.imgSedePais}}/>
+      <br> <br>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+</div>
+
+<div class="container-fluid">
   <h2 class="featurette-heading1">Ciudades Sede del Mundial</h2>
   <p class="blockquote featurette-p">Cinco son las ciudades Sede del Mundial, aunque cuatro de ellas pertenecen casi al mismo espacio metropolitano, conoce las Sedes:</p>
 </div>
 <hr class="featurette-divider">
 <div *ngFor="let sede of sedes; index as i">
-  <div class="row offset-md-4 w-50">
-    <div class="col-md-7 order-md-2 div-1">
+  <div class="row offset-md-3 w-50">
+    <div class="col-md-auto order-md-2 div-1">
       <h2 class="featurette-heading fw-normal lh-1">{{sede.nombre}} <span class="text-muted"></span></h2>
       <table class="table">
         <thead>
@@ -31,8 +63,9 @@
         </tbody>
       </table>
     </div>
-    <div class="col-md-5 order-md-1 container-fluid">
-      <img class="img-fluid"  max-width="150" max-height="150" src={{sede.imgCiudad}}/>
+    <div class="col-8 order-md-1 container-fluid">
+      <img class="img-thumbnail"  alt="Responsive image" src={{sede.imgCiudad}}/>
+        <br> <br>
     </div>
   </div>
   <hr class="featurette-divider">
