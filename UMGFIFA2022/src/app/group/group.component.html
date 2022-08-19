@@ -7,6 +7,7 @@
 <h1><b>COPA MUNDIAL DE LA FIFA CATAR 2022™</b> </h1>
 <h1><b> GRUPOS</b></h1>
 <div class="container">
+  
   <div class="item">
     <table>
       <thead>
@@ -15,7 +16,7 @@
         </tr>
       </thead>
     </table>
-    <div class="item" *ngFor="let equipo of equipos; index as i">
+    <div class="item" *ngFor="let equipo of grupoA; index as i">
       <table>
           <td>
             <img src={{equipo.bandera}}/>
@@ -33,7 +34,7 @@
         </tr>
       </thead>
     </table>
-    <div class="item" *ngFor="let equipo of equipos1; index as i">
+    <div class="item" *ngFor="let equipo of grupoB; index as i">
       <table>
           <td>
             <img src={{equipo.bandera}}/>
@@ -43,7 +44,6 @@
     </div>
   </div>
   
-
   <div class="item">
     <table>
       <thead>
@@ -51,35 +51,15 @@
           <th>Grupo C</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/ARG?tx=c_fill,g_auto,q_auto"/>
-            <label><b>ARGENTINA</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/KSA?tx=c_fill,g_auto,q_auto"/>
-            <label><b>ARABIA SAUDÍ</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/MEX?tx=c_fill,g_auto,q_auto"/>
-            <label><b>MÉXICO</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/POL?tx=c_fill,g_auto,q_auto"/>
-            <label><b>POLONIA</b></label>
-        </td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoC; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 
   <div class="item">
@@ -89,36 +69,17 @@
           <th>Grupo D</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/FRA?tx=c_fill,g_auto,q_auto"/>
-            <label><b>FRANCIA</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/DEN?tx=c_fill,g_auto,q_auto"/>
-            <label><b>DINAMARCA</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/TUN?tx=c_fill,g_auto,q_auto"/>
-            <label><b>TÚNEZ</b></label> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/AUS?tx=c_fill,g_auto,q_auto"/>
-            <label><b>AUSTRALIA</b></label>
-        </td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoD; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
+
   <div class="item">
     <table>
       <thead>
@@ -126,32 +87,15 @@
           <th>Grupo E</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/ESP?tx=c_fill,g_auto,q_auto"/>
-            <label><b>ESPAÑA</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/GER?tx=c_fill,g_auto,q_auto"/>
-            <label><b>ALEMANIA</b></label> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-            <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/JPN?tx=c_fill,g_auto,q_auto"/>
-            <label><b>JAPÓN</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/CRC?tx=c_fill,g_auto,q_auto"/>
-          <label><b>COSTA RICA</b></label></td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoE; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 
   <div class="item">
@@ -161,27 +105,15 @@
           <th>Grupo F</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/BEL?tx=c_fill,g_auto,q_auto"/>
-          <label><b>BÉLGICA</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/CAN?tx=c_fill,g_auto,q_auto"/>
-          <label><b>CANADÁ</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/MAR?tx=c_fill,g_auto,q_auto"/>
-          <label><b>MARRUECOS</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/CRO?tx=c_fill,g_auto,q_auto"/>
-          <label><b>CROACIA</b></label></td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoF; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 
   <div class="item">
@@ -191,28 +123,15 @@
           <th>Grupo G</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/BRA?tx=c_fill,g_auto,q_auto"/>
-          <label><b>BRASIL</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/SRB?tx=c_fill,g_auto,q_auto"/>
-            <label><b>SERBIA</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/SUI?tx=c_fill,g_auto,q_auto"/> 
-          <label><b>SUIZA</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/CMR?tx=c_fill,g_auto,q_auto"/>
-          <label><b>CAMERÚN</b></label></td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoG; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 
   <div class="item">
@@ -222,28 +141,15 @@
           <th>Grupo H</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/POR?tx=c_fill,g_auto,q_auto"/>
-          <label><b>PORTUGAL</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/GHA?tx=c_fill,g_auto,q_auto"/>
-          <label><b>GHANA</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/URU?tx=c_fill,g_auto,q_auto"/>
-          <label><b>URUGUAY</b></label></td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/KOR?tx=c_fill,g_auto,q_auto"/> 
-            <label><b>COREA DEL SUR</b></label></td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of grupoH; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 </div>
 

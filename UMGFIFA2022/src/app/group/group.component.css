@@ -17,18 +17,17 @@ table{
 img{
     padding: 1px;
     width: 25%;
+    border-radius: 6px;
 }
 
 th, td{
     border: solid 5px #56042C 0.5;
     padding: 12px;
-    border-radius: 5px solid;
 }
 
 th{
     text-align: center;
     color: white;
-    
 }
 
 h1{
@@ -53,8 +52,9 @@ label{
     color: #56042C;
 }
 
-thead{
+thead,tr{
     background-color:  #56042C;
+    padding: 0px;
 }
 
 .logo{
