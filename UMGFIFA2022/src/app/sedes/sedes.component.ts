@@ -7,12 +7,15 @@ import { push } from '@firebase/database';
   templateUrl: './sedes.component.html',
   styleUrls: ['./sedes.component.css']
 })
+
 export class SedesComponent implements OnInit {
 sedes: Array<any>=[]
+sedesPais: Array<any>=[]
   constructor(public database:Database) { }
 
   ngOnInit(): void {
       this.obtenerSede();
+      this.obtenerSedePais();
     }
 
   registrarSede(){}
@@ -26,7 +29,17 @@ sedes: Array<any>=[]
         this.sedes.push(sede);
       });
   });
-
     }
+
+    obtenerSedePais(){
+        const starCountRef = ref(this.database, 'SedePais/');
+        onValue(starCountRef, (snapshot) => {
+          snapshot.forEach((childSnapshot) => {
+            const childData = childSnapshot.val();
+            let sedePais ={nombre:childData.nombre,imgSedePais:childData.imgSedePais,descripcion:childData.descripcion,poblacion:childData.poblacion};
+            this.sedesPais.push(sedePais);
+          });
+      });
+        }
 
 }
