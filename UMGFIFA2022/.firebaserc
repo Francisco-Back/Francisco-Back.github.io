@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "umg2022fifa": {
+      "hosting": {
+        "UMGFIFA2022": [
+          "umg2022fifa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "umg2022fifa"
+  }
+}

@@ -1,0 +1,74 @@
+/* GLOBAL STYLES
+-------------------------------------------------- */
+/* Padding below the footer and lighter body text */
+
+body {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  
+  /* Featurettes
+  ------------------------- */
+  
+  .featurette-divider {
+    margin: 1rem ;
+     /* Space out the Bootstrap <hr> more */
+  }
+  
+  /* Thin out the marketing headings */
+  
+  /* RESPONSIVE CSS
+  -------------------------------------------------- */
+  .div-1 {
+    background-color: #ffffff;
+    border-radius: 5%;
+
+  }
+
+    h2 {
+      font-size: 40px;
+      text-align: center;
+      color: #ffffff;
+    }
+    .featurette-heading {
+      font-size: 40px;
+      text-align: center;
+      color:#56042C;
+    }
+    .featurette-p {
+        font-size: 25px;
+        color: rgb(255, 255, 255);
+        text-align:center;
+
+      }
+
+  
+  @media (min-width: 60em) {
+    .featurette-heading {
+      margin-top: 0rem;
+    }
+  }
+
+  .bd-placeholder-img {
+    font-size: 1.125rem;
+    text-anchor: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    
+
+  }
+
+
+  @media (min-width: 800px) {
+    .bd-placeholder-img-lg {
+      font-size: 3.5rem;
+    }
+  }
+
+
+
+
+
+

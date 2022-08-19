@@ -94,6 +94,16 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "UMGFIFA2022:build:production",
+            "firebaseProject": "umg2022fifa",
+            "firebaseHostingSite": "umg2022fifa"
+          }
         }
       }
     }
