@@ -8,41 +8,21 @@
 <h1><b> GRUPOS</b></h1>
 <div class="container">
   <div class="item">
-    
     <table>
       <thead>
         <tr>
           <th>Grupo A</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/QAT?tx=c_fill,g_auto,q_auto"/>
-          <label><b>QATAR</b></label>
-        </td>
-        </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/ECU?tx=c_fill,g_auto,q_auto"/>
-            <label><b>ECUADOR</b></label> 
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/SEN?tx=c_fill,g_auto,q_auto"/>
-            <label><b>SENEGAL</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/NED?tx=c_fill,g_auto,q_auto"/> 
-            <label><b>PAISES BAJOS</b></label>
-        </td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of equipos; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
 
   <div class="item">
@@ -52,36 +32,17 @@
           <th>Grupo B</th>
         </tr>
       </thead>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/ENG?tx=c_fill,g_auto,q_auto"/>
-            <label><b>INGLATERRA</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/IRN?tx=c_fill,g_auto,q_auto"/> 
-            <label><b>IRÁN</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/USA?tx=c_fill,g_auto,q_auto"/>
-            <label><b>EEUU</b></label>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <img
-            src="https://cloudinary.fifa.com/api/v3/picture/flags-sq-2/WAL?tx=c_fill,g_auto,q_auto"/> 
-            <label><b>GÁLES</b></label>
-        </td>
-      </tr>
     </table>
+    <div class="item" *ngFor="let equipo of equipos1; index as i">
+      <table>
+          <td>
+            <img src={{equipo.bandera}}/>
+            <label><b>{{equipo.nombre}}</b></label>
+          </td>
+      </table>
+    </div>
   </div>
+  
 
   <div class="item">
     <table>
@@ -158,7 +119,6 @@
       </tr>
     </table>
   </div>
-
   <div class="item">
     <table>
       <thead>

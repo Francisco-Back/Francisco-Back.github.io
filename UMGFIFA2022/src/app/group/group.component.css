@@ -22,11 +22,13 @@ img{
 th, td{
     border: solid 5px #56042C 0.5;
     padding: 12px;
+    border-radius: 5px solid;
 }
 
 th{
     text-align: center;
     color: white;
+    
 }
 
 h1{
@@ -43,7 +45,7 @@ h1{
     justify-content: space-around;
     flex-wrap: wrap;
     width: 380px;
-    padding: 30px;
+    padding: 0px;
 }
 
 label{
