@@ -3,9 +3,9 @@
 /* Padding below the footer and lighter body text */
 
 body {
-    padding-top: 3rem;
+ 
     padding-bottom: 3rem;
-    color: #313131ef;
+    color: #000000ef;
   }
   
   
@@ -20,8 +20,11 @@ body {
   .carousel-caption {
     bottom: 7rem;
     z-index: 10;
-    background-color: rgba(9, 9, 9, 0.561);
+    background-color: rgba(9, 9, 9, 0.471);
+    border-radius: 5%;
   }
+
+  
   
   /* Declare heights because of positioning of img element */
   .carousel-item {
@@ -42,15 +45,14 @@ body {
     margin-left: .75rem;
   }
   .marketing .col-lg-4 a {
-    background-color:  #49BCE3;
+    background-color: #56042C;
   }
   
   /* Featurettes
   ------------------------- */
   
   .featurette-divider {
-    margin: 5rem ;
-     /* Space out the Bootstrap <hr> more */
+    margin: 5rem 0; /* Space out the Bootstrap <hr> more */
   }
   
   /* Thin out the marketing headings */
@@ -81,11 +83,6 @@ body {
       margin-top: 7rem;
     }
   }
-  @media (min-width: 62em) {
-    .featurette-heading {
-      margin-top: 7rem;
-    }
-  }
 
   .bd-placeholder-img {
     font-size: 1.125rem;
@@ -93,7 +90,6 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     user-select: none;
-
   }
 
   .bd-placeholder-img-round {
