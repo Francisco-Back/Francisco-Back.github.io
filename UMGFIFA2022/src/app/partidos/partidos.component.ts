@@ -26,7 +26,6 @@ export class PartidosComponent implements OnInit {
       let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
         pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
       this.Jornada1.push(partidos);
-      console.log(partidos);
     });
 
    
@@ -38,7 +37,6 @@ const starJor2 = ref(this.database, 'Partidos/Jornada2/');
       let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
         pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
       this.Jornada2.push(partidos);
-      console.log(partidos);
     });
 
    
@@ -51,7 +49,6 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
       let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
         pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
       this.Jornada3.push(partidos);
-      console.log(partidos);
     });
 
    

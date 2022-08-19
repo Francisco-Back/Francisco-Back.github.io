@@ -17,6 +17,7 @@ table{
 img{
     padding: 1px;
     width: 25%;
+    border-radius: 6px;
 }
 
 th, td{
@@ -43,7 +44,7 @@ h1{
     justify-content: space-around;
     flex-wrap: wrap;
     width: 380px;
-    padding: 30px;
+    padding: 0px;
 }
 
 label{
@@ -51,8 +52,9 @@ label{
     color: #56042C;
 }
 
-thead{
+thead,tr{
     background-color:  #56042C;
+    padding: 0px;
 }
 
 .logo{
