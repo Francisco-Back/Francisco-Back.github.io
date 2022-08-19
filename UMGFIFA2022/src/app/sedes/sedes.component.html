@@ -1,1 +1,41 @@
-<p>sedes works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body class="body-bk">
+<div class="container-fluid">
+  <h2 class="featurette-heading1">Ciudades Sede del Mundial</h2>
+  <p class="blockquote featurette-p">Cinco son las ciudades Sede del Mundial, aunque cuatro de ellas pertenecen casi al mismo espacio metropolitano, conoce las Sedes:</p>
+</div>
+<hr class="featurette-divider">
+<div *ngFor="let sede of sedes; index as i">
+  <div class="row offset-md-4 w-50">
+    <div class="col-md-7 order-md-2 div-1">
+      <h2 class="featurette-heading fw-normal lh-1">{{sede.nombre}} <span class="text-muted"></span></h2>
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">Descripción</th>
+          <th scope="col">Estadios</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>{{sede.descripcion}}</td>
+          <td>{{sede.estadios}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-md-5 order-md-1 container-fluid">
+      <img class="img-fluid"  max-width="150" max-height="150" src={{sede.imgCiudad}}/>
+    </div>
+  </div>
+  <hr class="featurette-divider">
+</div>
+</body>
+</html>
