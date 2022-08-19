@@ -5,205 +5,134 @@
     </div>
     <div class="b-example-divider"></div>
     <h3>Jornada 1 de 3</h3>
-    
-      <div class="container">
-        <div class="row   " >
-       
-          <div class="col-md-auto">
+      <div class="ff">
+      <div class="container  "  >
+
+        <div class="row row justify-content-center " >
+         
+          <div class="col-sm-6 "  *ngFor="let Jr1 of Jornada1; index as i" >
+           
             <table class="table rounded-3" >
               <thead>
                <tr>
-                 <th> Grupos</th>
-      
-          
+                 <th>Grupo</th>
+                 <th>{{Jr1.grupos1}}</th>
                </tr>
               </thead>
                  <tbody>
                      <tr>
-                         <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                         <td>Datos</td>
+                         <td><img class="img-fluid"  width="50" src={{Jr1.bandera1}}/></td>
+                         <td>{{Jr1.pais1}}</td>
                       
-                         <td>11/10/5826</td>
+                         <td>{{Jr1.fecha}}</td>
+
                         
                      </tr>
                  </tbody>
                  <tbody>
                    <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
+                       <td><img class="img-fluid"  width="50" src={{Jr1.bandera2}}/></td>
+                       <td>{{Jr1.pais2}}</td>
                     
                   
-                       <td>04:00</td>
+                       <td>{{Jr1.horario}}</td>
                    </tr>
                </tbody>
-                 
-             
              </table>
+
           </div>
-          <div class="col-md-auto"> 
-            <table class="table rounded-3" >
-            <thead>
-             <tr>
-               <th> Grupos</th>
-          
-             </tr>
-            </thead>
-               <tbody>
-                   <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
-                     
-                       <td>11/10/5826</td>
-                      
-                   </tr>
-               </tbody>
-               <tbody>
-                 <tr>
-                     <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                     <td>Datos</td>
-                     <td>04:00</td>
-                 </tr>
-             </tbody>
-               
-           
-           </table></div>
         </div>
       </div>
       
-    <hr class="featurette-divider">
+    </div>
+
+
+
     <h3>Jornada 2 de 3</h3>
-    
-      <div class="container">
-        <div class="row   " >
+    <div class="ff">
+    <div class="container  "  >
+
+      <div class="row row justify-content-center " >
        
-          <div class="col-md-auto">
-            <table class="table rounded-3" >
-              <thead>
-               <tr>
-                 <th> Grupos</th>
-      
-          
-               </tr>
-              </thead>
-                 <tbody>
-                     <tr>
-                         <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                         <td>Datos</td>
-                      
-                         <td>11/10/5826</td>
-                        
-                     </tr>
-                 </tbody>
-                 <tbody>
-                   <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
-                    
-                  
-                       <td>04:00</td>
-                   </tr>
-               </tbody>
-                 
-             
-             </table>
-          </div>
-          <div class="col-md-auto"> 
-            <table class="table rounded-3" >
+        <div class="col-sm-6 "  *ngFor="let Jr2 of Jornada2; index as i" >
+         
+          <table class="table rounded-3" >
             <thead>
              <tr>
-               <th> Grupos</th>
-          
+               <th>Grupo</th>
+               <th>{{Jr2.grupos1}}</th>
              </tr>
             </thead>
                <tbody>
                    <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
-                     
-                       <td>11/10/5826</td>
+                       <td><img class="img-fluid"  width="50" src={{Jr2.bandera1}}/></td>
+                       <td>{{Jr2.pais1}}</td>
+                    
+                       <td>{{Jr2.fecha}}</td>
+
                       
                    </tr>
                </tbody>
                <tbody>
                  <tr>
-                     <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                     <td>Datos</td>
-                     <td>04:00</td>
-                 </tr>
-             </tbody>
-               
-           
-           </table></div>
-        </div>
-      </div>
-      <hr class="featurette-divider">
-    
-      <h3>Jornada 3 de 3</h3>
-    
-      <div class="container">
-        <div class="row   " >
-       
-          <div class="col-md-auto">
-            <table class="table rounded-3" >
-              <thead>
-               <tr>
-                 <th> Grupos</th>
-      
-          
-               </tr>
-              </thead>
-                 <tbody>
-                     <tr>
-                         <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                         <td>Datos</td>
-                      
-                         <td>11/10/5826</td>
-                        
-                     </tr>
-                 </tbody>
-                 <tbody>
-                   <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
-                    
+                     <td><img class="img-fluid"  width="50" src={{Jr2.bandera2}}/></td>
+                     <td>{{Jr2.pais2}}</td>
                   
-                       <td>04:00</td>
-                   </tr>
-               </tbody>
-                 
-             
-             </table>
-          </div>
-          <div class="col-md-auto"> 
-            <table class="table rounded-3" >
-            <thead>
-             <tr>
-               <th> Grupos</th>
-          
-             </tr>
-            </thead>
-               <tbody>
-                   <tr>
-                       <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                       <td>Datos</td>
-                     
-                       <td>11/10/5826</td>
-                      
-                   </tr>
-               </tbody>
-               <tbody>
-                 <tr>
-                     <td><img class="img-fluid"  width="50" src="https://flagcdn.com/sn.svg"/></td>
-                     <td>Datos</td>
-                     <td>04:00</td>
+                
+                     <td>{{Jr2.horario}}</td>
                  </tr>
              </tbody>
-               
-           
-           </table></div>
+           </table>
+
         </div>
       </div>
+    </div>
     
+  </div>
+
+
+
+  <h3>Jornada 3 de 3</h3>
+  <div class="ff">
+  <div class="container  "  >
+
+    <div class="row row justify-content-center " >
+     
+      <div class="col-sm-6 "  *ngFor="let Jr3 of Jornada3; index as i" >
+       
+        <table class="table rounded-3" >
+          <thead>
+           <tr>
+             <th>Grupo</th>
+             <th>{{Jr3.grupos1}}</th>
+           </tr>
+          </thead>
+             <tbody>
+                 <tr>
+                     <td><img class="img-fluid"  width="50" src={{Jr3.bandera1}}/></td>
+                     <td>{{Jr3.pais1}}</td>
+                  
+                     <td>{{Jr3.fecha}}</td>
+
+                    
+                 </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                   <td><img class="img-fluid"  width="50" src={{Jr3.bandera2}}/></td>
+                   <td>{{Jr3.pais2}}</td>
+                
+              
+                   <td>{{Jr3.horario}}</td>
+               </tr>
+           </tbody>
+         </table>
+
+      </div>
+    </div>
+  </div>
+  
+</div>
     
     
     
