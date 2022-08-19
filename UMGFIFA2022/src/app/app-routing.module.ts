@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { GroupComponent } from './group/group.component';
 import { HomeComponent } from './home/home.component';
 import { PaisesComponent } from './paises/paises.component';
+import { PartidosComponent } from './partidos/partidos.component';
 import { SedesComponent } from './sedes/sedes.component';
 
 const routes: Routes = [
@@ -10,6 +11,7 @@ const routes: Routes = [
   { path: 'paises', component: PaisesComponent },
   { path: 'grupos', component: GroupComponent },
   { path: 'sedes', component: SedesComponent },
+  { path: 'partidos', component: PartidosComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

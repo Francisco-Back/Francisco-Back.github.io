@@ -11,6 +11,7 @@ import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { SedesComponent } from './sedes/sedes.component';
+import { PartidosComponent } from './partidos/partidos.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SedesComponent } from './sedes/sedes.component';
     HomeComponent,
     PaisesComponent,
     GroupComponent,
-    SedesComponent
+    SedesComponent,
+    PartidosComponent
   ],
   imports: [
     BrowserModule,
