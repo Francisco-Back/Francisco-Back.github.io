@@ -1,0 +1,57 @@
+.container{
+    justify-content: center;
+    flex-direction: row;
+    font-family: Arial;
+    font-size: x-large;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
+table{
+    background-color: #F5EED5;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+img{
+    padding: 1px;
+    width: 40%;
+}
+
+th, td{
+    border: solid 5px #56042C 0.5;
+    padding: 12px;
+}
+
+th{
+    text-align: center;
+    color: white;
+}
+
+h1{
+    text-align: center;
+    color: whitesmoke;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 12px;
+    float: initial;
+}
+
+
+label{
+    padding: 37px;
+    color: #56042C;
+}
+
+thead{
+    background-color:  #56042C;
+}
+
+.logo{
+    justify-content: center;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    float: left;
+}
+

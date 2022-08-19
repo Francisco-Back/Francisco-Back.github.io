@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EstadiosComponent } from './estadios/estadios.component';
 import { GroupComponent } from './group/group.component';
 import { HomeComponent } from './home/home.component';
 import { PaisesComponent } from './paises/paises.component';
@@ -12,6 +13,7 @@ const routes: Routes = [
   { path: 'grupos', component: GroupComponent },
   { path: 'sedes', component: SedesComponent },
   { path: 'partidos', component: PartidosComponent },
+  { path: 'estadios', component: EstadiosComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
