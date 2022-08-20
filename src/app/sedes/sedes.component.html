@@ -12,10 +12,11 @@
   <p class="blockquote featurette-p">Qatar es el Pais Sede de la Copa Mundial FIFA 2022</p>
 </div>
 <hr class="featurette-divider">
-<div *ngFor="let sedePais of sedesPais; index as i">
-  <div class="row offset-md-3 w-50">
+<div class="row  justify-content-center" *ngFor="let sedePais of sedesPais; index as i">
+  <div class="row offset-md-1 w-50">
     <div class="col-md-auto order-md-2 div-1">
       <h2 class="featurette-heading fw-normal lh-1">{{sedePais.nombre}} <span class="text-muted"></span></h2>
+      <img class="img-thumbnail"  alt="Responsive image" src={{sedePais.imgSedePais}}/>
       <table class="table">
         <thead>
         <tr>
@@ -31,10 +32,6 @@
         </tbody>
       </table>
     </div>
-    <div class="col-8 order-md-1 container-fluid">
-      <img class="img-thumbnail"  alt="Responsive image" src={{sedePais.imgSedePais}}/>
-      <br> <br>
-    </div>
   </div>
   <hr class="featurette-divider">
 </div>
@@ -44,10 +41,11 @@
   <p class="blockquote featurette-p">Cinco son las ciudades Sede del Mundial, aunque cuatro de ellas pertenecen casi al mismo espacio metropolitano, conoce las Sedes:</p>
 </div>
 <hr class="featurette-divider">
-<div *ngFor="let sede of sedes; index as i">
-  <div class="row offset-md-3 w-50">
+<div class="row justify-content-center" *ngFor="let sede of sedes; index as i">
+  <div class="row w-50">
     <div class="col-md-auto order-md-2 div-1">
       <h2 class="featurette-heading fw-normal lh-1">{{sede.nombre}} <span class="text-muted"></span></h2>
+      <img class="img-thumbnail"  alt="Responsive image" src={{sede.imgCiudad}}/>
       <table class="table">
         <thead>
         <tr>
@@ -57,7 +55,6 @@
         </thead>
         <tbody>
         <tr>
-          <img class="img-thumbnail"  alt="Responsive image" src={{sede.imgCiudad}}/>
           <td>{{sede.descripcion}}</td>
           <td>{{sede.estadios}}</td>
         </tr>
