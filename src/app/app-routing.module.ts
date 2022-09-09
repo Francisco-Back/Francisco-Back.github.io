@@ -5,6 +5,7 @@ import { GroupComponent } from './group/group.component';
 import { HomeComponent } from './home/home.component';
 import { PaisesComponent } from './paises/paises.component';
 import { PartidosComponent } from './partidos/partidos.component';
+import { RegisterComponent } from './register/register.component';
 import { SedesComponent } from './sedes/sedes.component';
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'sedes', component: SedesComponent },
   { path: 'partidos', component: PartidosComponent },
   { path: 'estadios', component: EstadiosComponent },
+  { path: 'register', component: RegisterComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

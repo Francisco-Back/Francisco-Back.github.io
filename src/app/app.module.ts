@@ -13,7 +13,8 @@ import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { SedesComponent } from './sedes/sedes.component';
 import { PartidosComponent } from './partidos/partidos.component';
 import { EstadiosComponent } from './estadios/estadios.component';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -25,13 +26,15 @@ import { EstadiosComponent } from './estadios/estadios.component';
     GroupComponent,
     SedesComponent,
     PartidosComponent,
-    EstadiosComponent
+    EstadiosComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
