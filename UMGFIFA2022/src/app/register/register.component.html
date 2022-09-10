@@ -1,0 +1,40 @@
+<body>
+    <form [formGroup]="user" (ngSubmit)="onSubmit()" action="" class="formulario" method="post">
+
+        <h1> <b>Registro</b> </h1>
+        <div class="contenedor">
+
+            <p >Porfavor Ingrese sus datos para registrarse</p>
+
+            <div class="input-contenedor">
+                <i class="fa-solid fa-user icon"></i>
+                <input type="text" name="name" charset="UTF-8" formControlName="name" placeholder="Nombre Completo" required>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-envelope icon"></i>
+                <input type="email" name="email" placeholder="Correo Electrónico" formControlName="email" required> 
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-key icon"></i>
+                <input type="password" name="password" placeholder="Contraseña" formControlName="password" required>
+            </div>
+            <br>
+            <div class="input-contenedor">
+                <i class="fa-solid fa-image-portrait icon"></i>
+                
+                <input id="img" class="form-control-file col" type="file" formControlName="img">
+            </div>
+            <br>
+            <button type="submit" class="button" [disabled]="!user.valid"> Registrarse </button>
+            <br><br>
+            <p>Al registrate en nuestra página aceptas nuestras condiciones y Políticas
+                de privacidad
+            </p>
+
+            <p>¿Ya tienes una cuenta?<a class="link" href=""> Iniciar Sesión</a></p>
+
+        </div>
+
+    </form>

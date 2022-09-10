@@ -9,19 +9,24 @@ import { environment } from 'src/environments/environment';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FormligaComponent } from './formliga/formliga.component';
+import { RegisterComponent } from './register/register.component';
+import { FormsModule, ReactiveFormsModule, FormGroup } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     GroupComponent,
     FormligaComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     RouterModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideDatabase(() => getDatabase())
+    provideDatabase(() => getDatabase()),
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
