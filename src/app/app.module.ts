@@ -15,6 +15,7 @@ import { PartidosComponent } from './partidos/partidos.component';
 import { EstadiosComponent } from './estadios/estadios.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { RegisterComponent } from './register/register.component';
     SedesComponent,
     PartidosComponent,
     EstadiosComponent,
-    RegisterComponent
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
