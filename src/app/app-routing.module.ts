@@ -8,6 +8,8 @@ import { PartidosComponent } from './partidos/partidos.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { LigaComponent } from './liga/liga.component';
+import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 import { SedesComponent } from './sedes/sedes.component';
 
 const routes: Routes = [
@@ -20,6 +22,8 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'principal', component: PrincipalComponent},
+  { path: 'liga', component: LigaComponent},
+  { path: 'confirmacionliga', component: ConfirmacionligaComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

@@ -17,6 +17,8 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
 import { PrincipalComponent } from './principal/principal.component';
+import { LigaComponent } from './liga/liga.component';
+import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,9 @@ import { PrincipalComponent } from './principal/principal.component';
     EstadiosComponent,
     RegisterComponent,
     LoginComponent,
-    PrincipalComponent
+    PrincipalComponent,
+    LigaComponent,
+    ConfirmacionligaComponent
   ],
   imports: [
     BrowserModule,
