@@ -1,0 +1,27 @@
+.btn{
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #56042C;
+    border-radius: 10px;
+    border: 2px solid #ffffff;
+  }
+  .boton_personalizado:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+}
+.my-custom-scrollbar {
+    position: relative;
+    height: 200px;
+    overflow: auto;
+    justify-content: center;
+    align-items: center;
+    }
+    .table-wrapper-scroll-y {
+    display: block;
+    justify-content: center;
+    align-items: center;
+    }
+    
