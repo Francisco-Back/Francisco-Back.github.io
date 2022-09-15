@@ -5,42 +5,42 @@
 
     <h4>Completa el siguiente formulario para empezar.</h4>
 
-    <form action="" class="formulario" method="post">
+    <form [formGroup]="liga" (ngSubmit)="onSubmit()" action="" class="formulario" method="post">
 
         <hr><hr>
         <div class="conteiner">
             <div class="form-group row">
                 <label class="col-sm-2 col-form-label"><b>Nombre de la Competición</b></label>
                 <div class="col-sm-10">
-                    <input type="text" id="nombre_liga">
+                    <input type="text" id="nombreLiga" name="nombreLiga" formControlName="nombreLiga">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"><b>Fecha de inicio</b></label>
                 <div class="col-sm-10">
-                    <input type="date" id="fecha_inicio" name="fecha_inicio" min="2022-01-01" max="2030-12-31" >
+                    <input type="date" id="fechaInicio" name="fechaInicio" formControlName="fechaInicio" min="2022-01-01" max="2030-12-31" >
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"><b>Fecha fin</b></label>
                 <div class="col-sm-10">
-                    <input type="date" id="fecha_fin" min="2022-01-01" max="2030-12-31">
+                    <input type="date" id="fechaFin" name="fechaFin" formControlName="fechaFin" min="2022-01-01" max="2030-12-31">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"><b>Ciudad</b></label>
                 <div class="col-sm-10">
-                    <input type="text" id="ciudad">
+                    <input type="text" id="ciudad" name="ciudad" formControlName="ciudad">
                 </div>
             </div>
 
             <div class="form-group row">
                 <label for="staticEmail" class="col-sm-2 col-form-label"><b>Cantidad de Equipos</b></label>
                 <div class="col-sm-10">
-                    <select class="form-control" [value]="0" id="cant_equipos">
+                    <select class="form-control" [value]="0" id="cantEquipos" name="cantEquipos" formControlName="cantEquipos">
                         <option>5</option>
                         <option>10</option>
                         <option>15</option>
@@ -49,7 +49,7 @@
                 </div>
             </div>
         
-            <button type="submit" class="button" ><b>CREAR LIGA</b></button>
+            <button type="submit" class="button" [disabled]="!liga.valid" ><b>CREAR LIGA</b></button>
             
             <p>Una vez creada podra mandar invitaciones a las personas 
                 para que se unan a su liga
