@@ -8,6 +8,57 @@
 
 <body class="body-bk">
 
+<div class="container-fluid">
+  <h2 class="featurette-heading1">Información de la Liga</h2>
+</div>
+
+<div class="container-fluid" *ngFor="let liga of ligas; index as i">
+  <h2 class="featurette-heading4">Id Liga: {{liga.id}} </h2>
+  <h2 class="featurette-heading4">Nombre de Liga: {{liga.nombre}}</h2>
+  <h2 class="featurette-heading4">Cantidad de Equipos: {{liga.cantidadEquipos}}</h2>
+  <h2 class="featurette-heading4">Fecha Inicio: {{liga.fechaInicio}}</h2>
+  <h2 class="featurette-heading4">Fecha Final: {{liga.fechaFinal}}</h2>
+
+  <hr class="featurette-divider">
+</div>
+
+
+<div class="container-fluid">
+  <h2 class="featurette-heading2">Usuarios de la Liga</h2>
+</div>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid row w-50 ">
+  <table class="table table-bordered table-striped mb-0 table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Pais</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let usuario of usuarios; index as i">
+      <th scope="row">{{usuario.id}}</th>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.pais}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <hr class="featurette-divider">
+
+  <div class="form-group">
+    <input type="text" class="form-control" name="correo" placeholder="Ingrese Correo" required="required">
+    <span class="help-block featurette-heading3">Ingrese el correo del Usuario al que desea invitar a la Liga.</span>
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary">Invitar Usuario</button>
+  </div>
+
+</div>
+<br /><br />
+<br /><br />
 
 </body>
 </html>
