@@ -20,6 +20,7 @@ import { PrincipalComponent } from './principal/principal.component';
 import { LigaComponent } from './liga/liga.component';
 import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormLigaComponent } from './form-liga/form-liga.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     PrincipalComponent,
     LigaComponent,
-    ConfirmacionligaComponent
+    ConfirmacionligaComponent,
+    FormLigaComponent
   ],
   imports: [
     BrowserModule,
