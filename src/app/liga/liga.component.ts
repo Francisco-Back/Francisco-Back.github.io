@@ -36,7 +36,7 @@ usuarios: Array<any>=[]
         onValue(starCountRef, (snapshot) => {
           snapshot.forEach((childSnapshot) => {
             const childData = childSnapshot.val();
-            let usuario ={id:childData.id,nombre:childData.nombre,apellido:childData.apellido,pais:childData.pais};
+            let usuario ={nombre:childData.nombre,correo:childData.correo};
             this.usuarios.push(usuario);
           });
       });
