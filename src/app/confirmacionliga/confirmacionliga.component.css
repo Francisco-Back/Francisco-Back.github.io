@@ -1,0 +1,28 @@
+.my-custom-scrollbar {
+position: relative;
+height: 200px;
+overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+display: block;
+}
+
+.featurette-heading1 {
+      font-size: 50px;
+      text-align: center;
+      color: #ffffff;
+    }
+
+.featurette-heading2 {
+      font-size: 40px;
+      text-align: left;
+      color: #ffffff;
+}
+
+.featurette-heading3 {
+      font-size: 30px;
+      text-align: center;
+      color: #ffffff;
+}
+
