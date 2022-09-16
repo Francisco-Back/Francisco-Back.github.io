@@ -8,6 +8,78 @@
 
 <body class="body-bk">
 
+<div class="container-fluid">
+  <h2 class="featurette-heading1">Información de la Liga</h2>
+</div>
+
+<div class="container-fluid" *ngFor="let liga of ligas; index as i">
+  <table class="table">
+    <thead>
+    <tr class="table-light">
+      <th scope="col">Id Liga</th>
+      <th scope="col">Nombre Liga</th>
+      <th scope="col">Cantidad Equipos</th>
+      <th scope="col">Fecha Inicio</th>
+      <th scope="col">Fecha Final</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-light">
+      <th scope="row">{{liga.id}}</th>
+      <td>{{liga.nombre}}</td>
+      <td>{{liga.cantidadEquipos}}</td>
+      <td>{{liga.fechaInicio}}</td>
+      <td>{{liga.fechaFinal}}</td>
+    </tr>
+    </tbody>
+  </table>
+  <hr class="featurette-divider">
+</div>
+
+
+<div class="container-fluid">
+  <h2 class="featurette-heading2">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Usuarios de la Liga</h2>
+</div>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid row w-50 ">
+  <table class="table table-bordered table-dark">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Pais</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="table-secondary" *ngFor="let usuario of usuarios; index as i">
+      <th scope="row">{{usuario.id}}</th>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.apellido}}</td>
+      <td>{{usuario.pais}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+</div>
+<br>
+
+<div class="container-fluid">
+  <h2 class="featurette-heading3">Has sido Invitado a formar parte de esta Liga</h2>
+  <h2 class="featurette-heading3">¿Deseas Aceptar la invitación?</h2>
+</div>
+
+<div class="form-group">
+  <div class="row m-0 justify-content-center">
+    <div class="col-auto">
+  <button type="submit" class="btn btn-success btn-lg">Aceptar</button>
+  &nbsp;
+  <button type="submit" class="btn btn-danger btn-lg">Cancelar</button>
+    </div>
+  </div>
+</div>
+<br><br>
 
 
 </body>
