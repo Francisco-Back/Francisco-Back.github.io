@@ -21,8 +21,8 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(): Observable<User[]> {
-    return this.httpClient.get<User[]>(this.apiURL + '/UserCreate')
+  getAll(): Observable<User> {
+    return this.httpClient.get<User>(this.apiURL + '/UserCreate')
     .pipe(
       catchError(this.errorHandler)
     )

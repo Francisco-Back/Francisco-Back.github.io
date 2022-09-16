@@ -15,22 +15,22 @@
     <form [formGroup]="user" (ngSubmit)="onSubmit()" >
     <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="nombre">Nombre: </label>
-        <input id="nombre" class="form-control" type="text" formControlName="nombre" >
+        <input id="nombre" class="form-control" type="text" formControlName="nombre" required="required" >
     </div>
     <div class="form-group row">
      <label class="col-sm-2 col-form-label" for="correo">Email: </label>
-        <input id="correo" class="form-control" type="email" formControlName="correo">
+        <input id="correo" class="form-control" type="email" formControlName="correo" required="required">
     </div>
     <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="password">Password: </label>
-        <input id="password" class="form-control" type="password" formControlName="password">
+        <input id="password" class="form-control" type="password" formControlName="password" required="required">
     </div>
     <div class="form-group row">
         <label for="avatar">Foto de Perfil: </label>
-        <input id="avatar"  class="form-control-file col" type="file" formControlName="avatar">
+        <input id="avatar"  class="form-control-file col " type="file" formControlName="avatar" required="required">
     </div>
-    <p>Complete the form to enable button.</p>
-    <button class="btn btn-primary" type="submit" [disabled]="!user.valid">Submit</button>
+    <p>Ingrese todos los datos solicitados para registrarse</p>
+    <button class="btn btn-primary" type="submit" [disabled]="!user.valid">Registrarse</button>
     </form>
     </div>
 </div>

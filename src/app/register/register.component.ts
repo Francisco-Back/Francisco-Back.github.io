@@ -37,6 +37,11 @@ export class RegisterComponent implements OnInit {
     this.userService.create(usuario).subscribe((res:any) => {
          this.router.navigateByUrl('/login');
     })
+
+    this.userService.getAll().subscribe((data: User) => {
+      let users = data;
+      console.log(users);
+ })
     console.warn(this.user.value);
   }
 }
