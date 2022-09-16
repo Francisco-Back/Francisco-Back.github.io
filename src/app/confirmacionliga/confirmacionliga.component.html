@@ -45,18 +45,14 @@
   <table class="table table-bordered table-dark">
     <thead>
     <tr>
-      <th scope="col">Id</th>
       <th scope="col">Nombre</th>
-      <th scope="col">Apellido</th>
-      <th scope="col">Pais</th>
+      <th scope="col">Correo</th>
     </tr>
     </thead>
     <tbody>
     <tr class="table-secondary" *ngFor="let usuario of usuarios; index as i">
-      <th scope="row">{{usuario.id}}</th>
       <td>{{usuario.nombre}}</td>
-      <td>{{usuario.apellido}}</td>
-      <td>{{usuario.pais}}</td>
+      <td>{{usuario.correo}}</td>
     </tr>
     </tbody>
   </table>

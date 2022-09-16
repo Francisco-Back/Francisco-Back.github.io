@@ -32,15 +32,15 @@ usuarios: Array<any>=[]
     }
 
     obtenerUsuario(){
-        const starCountRef = ref(this.database, 'Usuarios/');
-        onValue(starCountRef, (snapshot) => {
-          snapshot.forEach((childSnapshot) => {
-            const childData = childSnapshot.val();
-            let usuario ={id:childData.id,nombre:childData.nombre,apellido:childData.apellido,pais:childData.pais};
-            this.usuarios.push(usuario);
+            const starCountRef = ref(this.database, 'Usuarios/');
+            onValue(starCountRef, (snapshot) => {
+              snapshot.forEach((childSnapshot) => {
+                const childData = childSnapshot.val();
+                let usuario ={nombre:childData.nombre,correo:childData.correo};
+                this.usuarios.push(usuario);
+              });
           });
-      });
-        }
+            }
 
 }
 
