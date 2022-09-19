@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { Liga } from '../models/liga.model';
+import { UserService } from '../services/user.service';
 
 
 @Component({
@@ -9,21 +12,35 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class FormLigaComponent implements OnInit {
 
-  constructor() { }
-  liga = new FormGroup({
-    nombreLiga: new FormControl('',Validators.required),
-    fechaInicio: new FormControl('', Validators.required),
-    fechaFin: new FormControl('', Validators.required),
-    ciudad: new FormControl('', Validators.required),
-    cantEquipos: new FormControl('',Validators.required)
-  });
-
+  constructor(
+    private userService: UserService,
+    private router: Router
+  ) { }
+  liga!: FormGroup;
+  userID =13;
 
   ngOnInit(): void {
+    this.liga = new FormGroup({
+      nombreLiga: new FormControl('',Validators.required),
+      fecha_Inicio: new FormControl('', Validators.required),
+      fecha_Final: new FormControl('', Validators.required),
+      cant_Equipos: new FormControl('',Validators.required),
+    });
+  }
+
+  get f(){
+    return this.liga.controls;
   }
   onSubmit() {
-    // TODO: Use EventEmitter with form value
-    console.warn(this.liga.value);
+    if (!this.liga.valid) {
+      return;
+    }
+    let ligue: Liga = this.liga.value;
+    console.log(ligue);
+    this.userService.createLiga(ligue , this.userID).subscribe((res:any) => {
+      console.warn(ligue);
+      //this.router.navigateByUrl('/principal');
+    })
   }
 
 }
