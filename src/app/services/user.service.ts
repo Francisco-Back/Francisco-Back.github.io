@@ -36,6 +36,15 @@ export class UserService {
     )
   }  
 
+  //Service para Ligas
+
+  createLiga(liga: Liga): Observable<Liga> {
+    return this.httpClient.post<Liga>(this.apiURL + '/api/Ligas/' + liga.id, JSON.stringify(liga), this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }  
+
   ligasFindByUserId(id: number): Observable<Liga[]> {
     return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas/UserT/' + id)
     .pipe(
