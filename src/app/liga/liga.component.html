@@ -12,7 +12,7 @@
   <h2 class="featurette-heading1">Información de la Liga</h2>
 </div>
 
-<div class="container-fluid" *ngFor="let liga of ligas; index as i">
+<div class="container-fluid">
   <table class="table">
     <thead>
     <tr class="table-light">
@@ -24,12 +24,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="table-light">
+    <tr class="table-light" *ngFor="let liga of ligas">
       <th scope="row">{{liga.id}}</th>
-      <td>{{liga.nombre}}</td>
-      <td>{{liga.cantidadEquipos}}</td>
-      <td>{{liga.fechaInicio}}</td>
-      <td>{{liga.fechaFinal}}</td>
+      <td>{{liga.NombreLiga}}</td>
+      <td>{{liga.Cant_Equipos}}</td>
+      <td>{{liga.Fecha_Inicio}}</td>
+      <td>{{liga.Fecha_Final}}</td>
     </tr>
     </tbody>
   </table>
@@ -52,11 +52,11 @@
     </tr>
     </thead>
     <tbody>
-    <tr class="table-secondary" *ngFor="let usuario of usuarios; index as i">
+    <tr class="table-secondary" *ngFor="let usuario of usuarios">
       <th scope="row">{{usuario.id}}</th>
       <td>{{usuario.nombre}}</td>
-      <td>{{usuario.apellido}}</td>
-      <td>{{usuario.pais}}</td>
+      <td>{{usuario.nombre}}</td>
+      <td>{{usuario.nombre}}</td>
     </tr>
     </tbody>
   </table>

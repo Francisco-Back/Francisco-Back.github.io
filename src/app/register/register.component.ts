@@ -35,13 +35,13 @@ export class RegisterComponent implements OnInit {
     }
     let usuario: User = this.user.value;
     this.userService.create(usuario).subscribe((res:any) => {
-         this.router.navigateByUrl('/login');
+      console.warn(this.user.value);
     })
 
-    this.userService.getAll().subscribe((data: User) => {
+   this.userService.getAll().subscribe((data: User) => {
       let users = data;
       console.log(users);
+      this.router.navigateByUrl('/login');
  })
-    console.warn(this.user.value);
   }
 }
