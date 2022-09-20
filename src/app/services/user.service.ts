@@ -22,6 +22,7 @@ export class UserService {
 
   constructor(private httpClient: HttpClient) { }
 
+    //Service Usuarios
   getAll(): Observable<User> {
     return this.httpClient.get<User>(this.apiURL + '/api/User')
     .pipe(
@@ -35,7 +36,7 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }  
-
+  //--------------------------------------------------------------------------------------------
   //Service para Ligas
 
   createLiga(liga: Liga, id: number): Observable<Liga> {
@@ -51,7 +52,12 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-
+  ligasFindById(id: number): Observable<Liga>{
+    return this.httpClient.get<Liga>(this.apiURL + '/api/Ligas/LigasUser/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 /*  find(id: number): Observable<Client> {
     return this.httpClient.get<Client>(this.apiURL + '/client/' + id)
     .pipe(

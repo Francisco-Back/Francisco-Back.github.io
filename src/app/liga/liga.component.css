@@ -41,3 +41,16 @@ h4{
       text-align: center;
       color: #ffffff;
 }
+
+p{
+      font-size: 15px;
+      text-align: center;
+      color: #ffffff;
+}
+
+.button1{
+      background-color: #56042C;
+      color: white;
+      border-color: #FEC310;
+      cursor: pointer;
+  }

@@ -12,7 +12,7 @@
   <h2 class="featurette-heading1">Información de la Liga</h2>
 </div>
 
-<div class="container-fluid" *ngFor="let liga of ligas; index as i">
+<div class="container-fluid">
   <table class="table">
     <thead>
     <tr class="table-light">
@@ -26,10 +26,10 @@
     <tbody>
     <tr class="table-light">
       <th scope="row">{{liga.id}}</th>
-      <td>{{liga.nombre}}</td>
-      <td>{{liga.cantidadEquipos}}</td>
-      <td>{{liga.fechaInicio}}</td>
-      <td>{{liga.fechaFinal}}</td>
+      <td>{{liga.nombreLiga}}</td>
+      <td>{{liga.cant_Equipos}}</td>
+      <td>{{liga.fecha_Inicio}}</td>
+      <td>{{liga.fecha_Final}}</td>
     </tr>
     </tbody>
   </table>
@@ -38,7 +38,7 @@
 
 
 <div class="container-fluid">
-  <h2 class="featurette-heading2">Usuarios de la Liga</h2>
+  <h2 class="featurette-heading2">Usuarios en esta liga</h2>
 </div>
 
 <div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid flex w-50 pos ">
@@ -69,7 +69,7 @@
 <div class="form-group">
   <div class="row m-0 justify-content-center">
     <div class="col-auto">
-  <button type="submit" class="btn btn-success btn-lg">Aceptar</button>
+  <button type="submit" class="btn btn-primary btn-lg">Aceptar</button>
   &nbsp;
   <button type="submit" class="btn btn-danger btn-lg">Cancelar</button>
     </div>

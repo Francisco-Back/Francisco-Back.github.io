@@ -14,7 +14,8 @@ import { UserService } from '../services/user.service';
 
 export class LigaComponent implements OnInit {
 ligas: Liga[]=[];
-userID=20;
+userID=13;
+admin = true;
 usuarios: Array<any>=[];
   constructor(
     public database:Database,
@@ -26,7 +27,9 @@ usuarios: Array<any>=[];
       this.obtenerUsuario();
     }
 
-  registrarLiga(){}
+  registrarLiga(){
+
+  }
 
   obtenerLiga(){
     /*const starCountRef = ref(this.database, 'Ligas/');
