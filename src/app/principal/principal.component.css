@@ -8,20 +8,52 @@
     border-radius: 10px;
     border: 2px solid #ffffff;
   }
-  .boton_personalizado:hover{
-    color: #1883ba;
-    background-color: #ffffff;
-}
-.my-custom-scrollbar {
+
+  .my-custom-scrollbar {
     position: relative;
     height: 200px;
     overflow: auto;
     justify-content: center;
     align-items: center;
     }
-    .table-wrapper-scroll-y {
+    .my-custom-scrollbar1 {
+      position: relative;
+      height: 200px;
+      overflow: auto;
+      justify-content: center;
+      align-items: left;
+      }
+    .table-wrapper-scroll-y1 {
     display: block;
     justify-content: center;
     align-items: center;
     }
-    
+    .table-wrapper-scroll-y2 {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      }
+    .container1{
+      font-family: Arial;
+      font-size: x-large;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+  }
+    .container2{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: x-large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+  
+.table{
+
+  background-color:#ffffff;
+  width: 100%;
+  border-collapse: collapse;
+
+}

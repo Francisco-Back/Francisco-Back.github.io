@@ -1,13 +1,27 @@
 <body class="body-bk">
     <div>
-    <h1><button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/liga']">Administrar Ligas</button></h1>
+    <!--<h1><button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/liga']">Administrar Ligas</button></h1>-->
+    <div class="container text-center">
+    <div class="row">
+    <div class="col">
     <h1><button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/form-liga']">Crear Ligas</button></h1>
+    </div>
+    <div class="col">
     <h1><button type="button" class="btn btn-secondary btn-lg">Ultimas apuestas</button></h1>
     </div>
-    <div>
-        <div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid row w-50">
-
-            <table class="table table-bordered table-striped mb-0 table-dark">
+    </div>
+    </div>
+    </div>
+    <br>
+    <br>
+      <div class="container text-center">
+        <div class="row">
+          <div class="col">
+            <div class="container row offset-md-0 ">
+              <h1 class="h1 color text-light">Ligas a las cuales perteneces</h1>
+            </div>
+        <div class="table-wrapper-scroll-y1 my-custom-scrollbar container1-fluid">
+            <table class="table table-bordered table-striped mb-0 table-ligth">
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -77,4 +91,86 @@
           </div>
           
     </div>
+    
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div class="col">
+      <div class="container row offset-md-0 ">
+        <h1 class="h1 color text-light">Grupos</h1>
+      </div>
+    <div class="table-wrapper-scroll-y2 my-custom-scrollbar1 container2-fluid">
+      <div class="col-sm-150 "  *ngFor="let Jr1 of Jornada1; index as i" >
+           
+        <table class="table rounded-3 table-bordered table-striped mb-0" >
+          <thead>
+           <tr>
+             <th>Grupo</th>
+             <th>{{Jr1.grupos1}}</th>
+           </tr>
+          </thead>
+             <tbody>
+                 <tr>
+                     <td><img class="img-fluid"  width="100" src={{Jr1.bandera1}}/></td>
+                     <td>{{Jr1.pais1}}</td>
+                  
+                     <td>{{Jr1.fecha}}</td>
+
+                    
+                 </tr>
+             </tbody>
+             <tbody>
+               <tr>
+                   <td><img class="img-fluid"  width="100" src={{Jr1.bandera2}}/></td>
+                   <td>{{Jr1.pais2}}</td>
+                
+              
+                   <td>{{Jr1.horario}}</td>
+               </tr>
+           </tbody>
+         </table>
+
+      </div>
+
+    </div>
+  </div>
+</div>
+</div>
+
+<br>
+<div class="container row offset-md-5 ">
+  <h1 class="h1 color text-light">Administrar mis Ligas </h1>
+</div>
+
+<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid">
+  <div class="container-fluid">
+    <table class="table">
+      <thead>
+      <tr class="table-light">
+        <th scope="col">Id Liga</th>
+        <th scope="col">Nombre Liga</th>
+        <th scope="col">Cantidad Equipos</th>
+        <th scope="col">Fecha Inicio</th>
+        <th scope="col">Fecha Final</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-light" *ngFor="let liga of ligas">
+        <th scope="row">{{liga.id}}</th>
+        <td>{{liga.nombreLiga}}</td>
+        <td>{{liga.cant_Equipos}}</td>
+        <td>{{liga.fecha_Inicio}}</td>
+        <td>{{liga.fecha_Final}}</td>
+      </tr>
+      </tbody>
+    </table>
+    <hr class="featurette-divider">
+  </div>
+</div>
+<br>
+<br>
 </body>
