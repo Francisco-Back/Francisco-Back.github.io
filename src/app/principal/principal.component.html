@@ -1,3 +1,4 @@
+<app-encabezado></app-encabezado>
 <body class="body-bk">
     <div>
     <!--<h1><button type="button" class="btn btn-secondary btn-lg" [routerLink]="['/liga']">Administrar Ligas</button></h1>-->
@@ -87,11 +88,11 @@
                   </tr>
               </tbody>
             </table>
-          
+
           </div>
-          
+
     </div>
-    
+
     <br>
     <br>
     <br>
@@ -105,7 +106,7 @@
       </div>
     <div class="table-wrapper-scroll-y2 my-custom-scrollbar1 container2-fluid">
       <div class="col-sm-150 "  *ngFor="let Jr1 of Jornada1; index as i" >
-           
+
         <table class="table rounded-3 table-bordered table-striped mb-0" >
           <thead>
            <tr>
@@ -117,18 +118,18 @@
                  <tr>
                      <td><img class="img-fluid"  width="100" src={{Jr1.bandera1}}/></td>
                      <td>{{Jr1.pais1}}</td>
-                  
+
                      <td>{{Jr1.fecha}}</td>
 
-                    
+
                  </tr>
              </tbody>
              <tbody>
                <tr>
                    <td><img class="img-fluid"  width="100" src={{Jr1.bandera2}}/></td>
                    <td>{{Jr1.pais2}}</td>
-                
-              
+
+
                    <td>{{Jr1.horario}}</td>
                </tr>
            </tbody>

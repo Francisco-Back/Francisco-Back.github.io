@@ -1,3 +1,4 @@
+<app-encabezado></app-encabezado>
 <body class="body-bk">
     <div>
     <h1>Horarios de partidos</h1>
@@ -9,9 +10,9 @@
       <div class="container  "  >
 
         <div class="row row justify-content-center " >
-         
+
           <div class="col-sm-6 "  *ngFor="let Jr1 of Jornada1; index as i" >
-           
+
             <table class="table rounded-3" >
               <thead>
                <tr>
@@ -23,18 +24,18 @@
                      <tr>
                          <td><img class="img-fluid"  width="50" src={{Jr1.bandera1}}/></td>
                          <td>{{Jr1.pais1}}</td>
-                      
+
                          <td>{{Jr1.fecha}}</td>
 
-                        
+
                      </tr>
                  </tbody>
                  <tbody>
                    <tr>
                        <td><img class="img-fluid"  width="50" src={{Jr1.bandera2}}/></td>
                        <td>{{Jr1.pais2}}</td>
-                    
-                  
+
+
                        <td>{{Jr1.horario}}</td>
                    </tr>
                </tbody>
@@ -43,7 +44,7 @@
           </div>
         </div>
       </div>
-      
+
     </div>
 
 
@@ -53,9 +54,9 @@
     <div class="container  "  >
 
       <div class="row row justify-content-center " >
-       
+
         <div class="col-sm-6 "  *ngFor="let Jr2 of Jornada2; index as i" >
-         
+
           <table class="table rounded-3" >
             <thead>
              <tr>
@@ -67,18 +68,18 @@
                    <tr>
                        <td><img class="img-fluid"  width="50" src={{Jr2.bandera1}}/></td>
                        <td>{{Jr2.pais1}}</td>
-                    
+
                        <td>{{Jr2.fecha}}</td>
 
-                      
+
                    </tr>
                </tbody>
                <tbody>
                  <tr>
                      <td><img class="img-fluid"  width="50" src={{Jr2.bandera2}}/></td>
                      <td>{{Jr2.pais2}}</td>
-                  
-                
+
+
                      <td>{{Jr2.horario}}</td>
                  </tr>
              </tbody>
@@ -87,7 +88,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
 
@@ -97,9 +98,9 @@
   <div class="container  "  >
 
     <div class="row row justify-content-center " >
-     
+
       <div class="col-sm-6 "  *ngFor="let Jr3 of Jornada3; index as i" >
-       
+
         <table class="table rounded-3" >
           <thead>
            <tr>
@@ -111,18 +112,18 @@
                  <tr>
                      <td><img class="img-fluid"  width="50" src={{Jr3.bandera1}}/></td>
                      <td>{{Jr3.pais1}}</td>
-                  
+
                      <td>{{Jr3.fecha}}</td>
 
-                    
+
                  </tr>
              </tbody>
              <tbody>
                <tr>
                    <td><img class="img-fluid"  width="50" src={{Jr3.bandera2}}/></td>
                    <td>{{Jr3.pais2}}</td>
-                
-              
+
+
                    <td>{{Jr3.horario}}</td>
                </tr>
            </tbody>
@@ -131,10 +132,10 @@
       </div>
     </div>
   </div>
-  
+
 </div>
-    
-    
-    
+
+
+
       <div class="b-example-divider"></div>
     </body>

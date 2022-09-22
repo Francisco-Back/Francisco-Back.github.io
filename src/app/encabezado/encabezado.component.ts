@@ -13,7 +13,9 @@ export class EncabezadoComponent implements OnInit {
   constructor(private tokenService: TokenService) { }
 
   ngOnInit() {
+    console.log(this.tokenService.getToken());
     if (this.tokenService.getToken()) {
+
       this.isLogged = true;
     } else {
       this.isLogged = false;
