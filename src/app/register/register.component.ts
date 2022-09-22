@@ -20,7 +20,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit(): void {
     this.user = new FormGroup({
       nombre: new FormControl('',Validators.required),
-      correo: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
       avatar: new FormControl('', Validators.required),
     });
@@ -38,10 +38,8 @@ export class RegisterComponent implements OnInit {
       console.warn(this.user.value);
     })
 
-   this.userService.getAll().subscribe((data: User) => {
-      let users = data;
-      console.log(users);
+
       this.router.navigateByUrl('/login');
- })
+
   }
 }
