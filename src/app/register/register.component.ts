@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
+import { ImagenService } from '../services/imagen.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -10,10 +11,11 @@ import { UserService } from '../services/user.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-
+  avatar!: File;
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private imagenService: ImagenService
   ) { }
   user!: FormGroup;
 
@@ -31,17 +33,20 @@ export class RegisterComponent implements OnInit {
   }
   onSubmit() {
     if (!this.user.valid) {
-      return;
+      return ;
     }
-    let usuario: User = this.user.value;
+    let usuario: User;
+    this.imagenService.subirImagen(this.avatar).subscribe((data) => {
+      this.user.patchValue({avatar: data});
+      console.log(usuario);
+    });
+    usuario= this.user.value;
     this.userService.create(usuario).subscribe((res:any) => {
       console.warn(this.user.value);
     })
-
-   this.userService.getAll().subscribe((data: User) => {
-      let users = data;
-      console.log(users);
-      this.router.navigateByUrl('/login');
- })
+    this.router.navigateByUrl('/login');
+  }
+  onFileChange(event:any){
+    this.avatar = event.target.files[0];
   }
 }

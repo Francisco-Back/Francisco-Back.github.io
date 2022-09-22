@@ -12,7 +12,7 @@
 <div class="container d-flex justify-content-center">
     <div class="row div-1 mt-5 mb-5 w-75 p-3">
         <p >Porfavor Ingrese sus datos para registrarse </p>
-    <form [formGroup]="user" (ngSubmit)="onSubmit()" >
+    <form [formGroup]="user" (ngSubmit)="onSubmit()" enctype="multipart/form-data">
     <div class="form-group row">
         <label class="col-sm-2 col-form-label" for="nombre">Nombre: </label>
         <input id="nombre" class="form-control" type="text" formControlName="nombre" required="required" >
@@ -26,8 +26,9 @@
         <input id="password" class="form-control" type="password" formControlName="password" required="required">
     </div>
     <div class="form-group row">
-        <label for="avatar">Foto de Perfil: </label>
-        <input id="avatar"  class="form-control-file col " type="file" formControlName="avatar" required="required">
+        <label for="avatar" class="custom-file-label" >Foto de Perfil: </label>
+        <!--(change)="onFileChange($event)"-->
+        <input id="avatar"  class="custom-file-input col " type="file" formControlName="avatar" #inputImageFile required="required" (change)="onFileChange($event)" accept="image/png, image/jpeg, image/jpg">
     </div>
     <p>Ingrese todos los datos solicitados para registrarse</p>
     <button class="btn btn-primary" type="submit" [disabled]="!user.valid">Registrarse</button>
