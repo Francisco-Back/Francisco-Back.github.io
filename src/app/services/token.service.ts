@@ -1,11 +1,15 @@
 import { Injectable } from '@angular/core';
+
+
 const TOKEN_KEY = 'AuthToken';
 const EMAILNAME_KEY = 'AuthEmailName';
 const AUTHORITIES_KEY = 'AuthAuthorities';
 @Injectable({
   providedIn: 'root'
 })
+
 export class TokenService {
+
   roles: Array<string> = [];
 
   constructor() { }
@@ -15,33 +19,32 @@ export class TokenService {
     window.sessionStorage.setItem(TOKEN_KEY, token);
   }
 
-public getToken(): string{
-  return this.sessionStorage.getItem(TOKEN_KEY);
-}
+  public getToken(): string | null {
+    return sessionStorage.getItem(TOKEN_KEY);
+  }
 
-
-
-  public setUserName(email: string): void {
+  public setUserName(userName: string): void {
     window.sessionStorage.removeItem(EMAILNAME_KEY);
-    window.sessionStorage.setItem(EMAILNAME_KEY, email);
+    window.sessionStorage.setItem(EMAILNAME_KEY, userName);
   }
 
-  public getUserName(): string {
-    return this.sessionStorage.getItem(EMAILNAME_KEY);
+  public getUserName(): string | null {
+    return  window.sessionStorage.getItem(EMAILNAME_KEY);
   }
 
-  public setAuthorities(authorities: string[]): void {
+  public setAuthorities(authorities: string[] ): void {
     window.sessionStorage.removeItem(AUTHORITIES_KEY);
     window.sessionStorage.setItem(AUTHORITIES_KEY, JSON.stringify(authorities));
   }
 
-  public getAuthorities(): string[] {
+  public getAuthorities(): string[]
+ {
     this.roles = [];
-    if (sessionStorage.getItem(AUTHORITIES_KEY)) {
-      JSON.parse(this.sessionStorage.getItem(AUTHORITIES_KEY)).forEach((authority: { authority: string; }) => {
+  /*  if (sessionStorage.getItem(AUTHORITIES_KEY)) {
+      JSON.parse(sessionStorage.getItem(AUTHORITIES_KEY)).forEach((authority: { authority: string; }) => {
         this.roles.push(authority.authority);
       });
-    }
+    }*/
     return this.roles;
   }
 
