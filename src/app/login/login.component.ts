@@ -4,7 +4,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../services/token.service';
-import{ToastrService} from 'ngx-toastr';
+import{ ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -54,6 +54,7 @@ export class LoginComponent implements OnInit {
         });
         this.router.navigate(['/']);
       },
+
       err => {
         this.isLogged = false;
         this.errMsj = err.error.message;

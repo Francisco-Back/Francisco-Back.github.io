@@ -23,6 +23,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormLigaComponent } from './form-liga/form-liga.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { ToastrModule } from 'ngx-toastr';
     ReactiveFormsModule,
     HttpClientModule,
     BrowserModule,
+    FormsModule,
     ToastrModule.forRoot()
   ],
   providers: [],
