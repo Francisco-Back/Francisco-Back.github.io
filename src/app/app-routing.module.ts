@@ -23,7 +23,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent},
   { path: 'login', component: LoginComponent},
   { path: 'principal', component: PrincipalComponent},
-  { path: 'liga', component: LigaComponent},
+  { path: 'liga', component: LoginComponent},
   { path: 'confirmacionliga', component: ConfirmacionligaComponent},
   { path: 'form-liga', component: FormLigaComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
