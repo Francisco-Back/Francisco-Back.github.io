@@ -21,9 +21,9 @@ import { LigaComponent } from './liga/liga.component';
 import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormLigaComponent } from './form-liga/form-liga.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -53,7 +53,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     BrowserModule,
     FormsModule,
-    ToastrModule.forRoot()
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

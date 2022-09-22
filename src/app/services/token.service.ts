@@ -7,7 +7,7 @@ const AUTHORITIES_KEY = 'AuthAuthorities';
 })
 export class TokenService {
   roles: Array<string> = [];
-  sessionStorage: any;
+
   constructor() { }
 
   public setToken(token: string): void {
@@ -21,9 +21,9 @@ public getToken(): string{
 
 
 
-  public setUserName(userName: string): void {
+  public setUserName(email: string): void {
     window.sessionStorage.removeItem(EMAILNAME_KEY);
-    window.sessionStorage.setItem(EMAILNAME_KEY, userName);
+    window.sessionStorage.setItem(EMAILNAME_KEY, email);
   }
 
   public getUserName(): string {
