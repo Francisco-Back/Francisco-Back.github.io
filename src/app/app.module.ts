@@ -24,6 +24,7 @@ import { FormLigaComponent } from './form-liga/form-liga.component';
 import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { interceptorProvider } from './interceptors/umg-interceptor.service';
 
 
 @NgModule({
@@ -56,7 +57,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ToastrModule.forRoot(),
     BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [interceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
