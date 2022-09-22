@@ -21,6 +21,8 @@ import { LigaComponent } from './liga/liga.component';
 import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormLigaComponent } from './form-liga/form-liga.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -47,7 +49,9 @@ import { FormLigaComponent } from './form-liga/form-liga.component';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase()),
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserModule,
+    ToastrModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
