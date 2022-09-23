@@ -37,8 +37,8 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-  GetUserByEmail(id: String | null): Observable<User> {
-    return this.httpClient.get<User>(this.apiURL + '/api/User/search/' + id)
+  GetUserByEmail(id: String | null): Observable<User[]> {
+    return this.httpClient.get<User[]>(this.apiURL + '/api/User/search/' + id)
     .pipe(
       catchError(this.errorHandler)
     )

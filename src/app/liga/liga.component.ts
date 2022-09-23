@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Database,set,ref,update,onValue} from '@angular/fire/database';
-import { Router } from '@angular/router';
+import { ActivatedRoute,Router } from '@angular/router';
 import { push } from '@firebase/database';
 import { Liga } from '../models/liga.model';
 import { User } from '../models/user.model';
@@ -13,16 +13,19 @@ import { UserService } from '../services/user.service';
 })
 
 export class LigaComponent implements OnInit {
-ligas: Liga[]=[];
+ligas: Liga = new Liga();
 userID=13;
+LigasId = 0;
 admin = true;
 usuarios: Array<any>=[];
   constructor(
     public database:Database,
     public userService: UserService,
+    private route: ActivatedRoute,
     private router: Router) { }
 
   ngOnInit(): void {
+    this.LigasId = this.route.snapshot.params['id'];
       this.obtenerLiga();
       this.obtenerUsuario();
     }
@@ -40,7 +43,7 @@ usuarios: Array<any>=[];
         this.ligas.push(liga);
       });
   });*/
-    this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
+    this.userService.ligasFindById(this.LigasId).subscribe((data:Liga)=>{
         this.ligas = data;
         console.log(this.ligas);
     });

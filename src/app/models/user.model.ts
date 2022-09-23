@@ -12,4 +12,8 @@ export class User {
       this.password = password;
       this.avatar=avatar;
   }
+  public getID(){
+    return this.id;
+  }
+
 }

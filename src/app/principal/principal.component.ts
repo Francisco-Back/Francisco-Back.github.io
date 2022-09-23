@@ -17,7 +17,7 @@ export class PrincipalComponent implements OnInit {
   Jornada3: Array<any>=[]
   ligas: Liga[]=[];
   userEmail!: string | null;
-  userID=9;
+  userID: number=0;
   constructor(
     public database:Database,
     public userService: UserService,
@@ -27,10 +27,9 @@ export class PrincipalComponent implements OnInit {
   
 
   ngOnInit(): void {
-    this.obtenerPartidos();
-    this.obtenerLiga();
     this.userEmail= this.tokenService.getUserName();
     this.obtenerUser();
+    this.obtenerPartidos();
   }
 
 
@@ -80,11 +79,15 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
     });
     }
 
-    obtenerUser(){
-      this.userService.GetUserByEmail(this.userEmail).subscribe((data: User)=>{
-        let user: User = data;
-        console.log("UsuarioID", this.userID);
-        console.log(user);
+  obtenerUser(){
+      this.userService.GetUserByEmail(this.userEmail).subscribe((data: User[])=>{
+        let user: User[] = data;
+        this.userID = user[0].id;
+        console.log(this.userID);
+        this.obtenerLiga();
     });
     }
+  verLiga(id: number){
+    this.router.navigate(['/liga/' + id]);
+  }
 }
