@@ -1,5 +1,5 @@
 export class User {
-   // public id: number =0;
+    public id: number =0;
     //public createDate: string | undefined;
     public nombre: string | undefined ;
     public email: string | undefined ;

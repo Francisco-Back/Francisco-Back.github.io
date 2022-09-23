@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Database, onValue, ref } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
+import { User } from '../models/user.model';
+import { TokenService } from '../services/token.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,17 +16,21 @@ export class PrincipalComponent implements OnInit {
   Jornada2: Array<any>=[]
   Jornada3: Array<any>=[]
   ligas: Liga[]=[];
-  userID=13;
+  userEmail!: string | null;
+  userID=9;
   constructor(
     public database:Database,
     public userService: UserService,
-    private router: Router) { }
+    private router: Router,
+    private tokenService: TokenService) { }
 
   
 
   ngOnInit(): void {
     this.obtenerPartidos();
     this.obtenerLiga();
+    this.userEmail= this.tokenService.getUserName();
+    this.obtenerUser();
   }
 
 
@@ -72,5 +78,13 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
         this.ligas = data;
         console.log(this.ligas);
     });
-    }  
+    }
+
+    obtenerUser(){
+      this.userService.GetUserByEmail(this.userEmail).subscribe((data: User)=>{
+        let user: User = data;
+        console.log("UsuarioID", this.userID);
+        console.log(user);
+    });
+    }
 }

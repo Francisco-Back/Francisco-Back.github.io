@@ -4,6 +4,7 @@ import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
 import { Liga } from '../models/liga.model';
+import { LigaUser } from '../models/ligaUser.model';
 
 @Injectable({
   providedIn: 'root'
@@ -35,7 +36,14 @@ export class UserService {
     .pipe(
       catchError(this.errorHandler)
     )
-  }  
+  }
+  GetUserByEmail(id: String | null): Observable<User> {
+    return this.httpClient.get<User>(this.apiURL + '/api/User/search/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  
   //--------------------------------------------------------------------------------------------
   //Service para Ligas
 
@@ -54,6 +62,35 @@ export class UserService {
   }
   ligasFindById(id: number): Observable<Liga>{
     return this.httpClient.get<Liga>(this.apiURL + '/api/Ligas/LigasUser/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  //service para Ligas-USer
+  crearLigaUser(LigaId: number, UserId: number): Observable<LigaUser> {
+    return this.httpClient.post<LigaUser>(this.apiURL + '/api/UserLigas/UnionLiga/' + UserId + '/'+LigaId, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }  
+
+  UserLigasFindByLigaID(id: number): Observable<LigaUser> {
+    return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/searchLiga/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
+  UserLigasFindByUser(id: number): Observable<LigaUser> {
+    return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/searchuser/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  
+  UserLigasEstado(id: number): Observable<LigaUser> {
+    return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/Estado/' + id)
     .pipe(
       catchError(this.errorHandler)
     )
