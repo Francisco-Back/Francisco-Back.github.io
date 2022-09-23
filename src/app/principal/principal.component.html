@@ -24,68 +24,16 @@
         <div class="table-wrapper-scroll-y1 my-custom-scrollbar container1-fluid">
             <table class="table table-bordered table-striped mb-0 table-ligth">
               <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">First</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
+                <tr class="table-light">
+                  <th scope="col">Nombre Liga</th>
+                  <th scope="col">Ver Liga</th>
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <th scope="row">1</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
+                <tr class="table-light" *ngFor="let liga of ligas">
+                  <td>{{liga.nombreLiga}}</td>
+                  <td><button class="btn btn-primary btn-sm">Ver</button></td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">3</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                  <th scope="row">4</th>
-                  <td>Mark</td>
-                  <td>Otto</td>
-                  <td>@mdo</td>
-                </tr>
-                <tr>
-                  <th scope="row">5</th>
-                  <td>Jacob</td>
-                  <td>Thornton</td>
-                  <td>@fat</td>
-                </tr>
-                <tr>
-                  <th scope="row">6</th>
-                  <td>Larry</td>
-                  <td>the Bird</td>
-                  <td>@twitter</td>
-                </tr>
-                <tr>
-                    <th scope="row">7</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@Insta</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">8</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@Face</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">9</th>
-                    <td>Larry</td>
-                    <td>the Bird</td>
-                    <td>@GOD</td>
-                  </tr>
               </tbody>
             </table>
 
