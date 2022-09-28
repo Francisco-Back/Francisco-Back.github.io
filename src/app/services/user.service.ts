@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import {  Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { User } from '../models/user.model';
+import { UserIDS } from '../models/user-id';
 import { Liga } from '../models/liga.model';
 import { LigaUser } from '../models/ligaUser.model';
 
@@ -30,7 +31,14 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-    
+
+  getuserID(correo: string | null): Observable<UserIDS> {
+    console.log(correo);
+    return this.httpClient.get<UserIDS>(this.apiURL + '/api/User/Dsearch/' + correo, this.httpOptions);
+  }
+
+
+
   create(user: User): Observable<User> {
     return this.httpClient.post<User>(this.apiURL + '/api/auth/nuevo', JSON.stringify(user), this.httpOptions)
     .pipe(
@@ -43,7 +51,8 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-  
+
+
   //--------------------------------------------------------------------------------------------
   //Service para Ligas
 
@@ -52,7 +61,7 @@ export class UserService {
     .pipe(
       catchError(this.errorHandler)
     )
-  }  
+  }
 
   ligasFindByUserId(id: number): Observable<Liga[]> {
     return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas/UserT/' + id)
@@ -73,7 +82,7 @@ export class UserService {
     .pipe(
       catchError(this.errorHandler)
     )
-  }  
+  }
 
   UserLigasFindByLigaID(id: number): Observable<LigaUser> {
     return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/searchLiga/' + id)
@@ -88,7 +97,7 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-  
+
   UserLigasEstado(id: number): Observable<LigaUser> {
     return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/Estado/' + id)
     .pipe(
@@ -101,21 +110,21 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
-    
+
   update(id: number, client: Client): Observable<Client> {
     return this.httpClient.put<Client>(this.apiURL + '/client/' + id, JSON.stringify(client), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
-    
+
   delete(id: number){
     return this.httpClient.delete<Client>(this.apiURL + '/client/' + id, this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
-     
+
    */
   errorHandler(error: any) {
     let errorMessage = '';
