@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup,Validators } from '@angular/forms';
+import { FormControl, FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { User } from '../models/user.model';
 import { ImagenService } from '../services/imagen.service';
@@ -35,12 +35,12 @@ export class RegisterComponent implements OnInit {
     if (!this.user.valid) {
       return ;
     }
-    let usuario: User;
-    this.imagenService.subirImagen(this.avatar).subscribe((data) => {
+    let usuario: User = this.user.value;
+    /*this.imagenService.subirImagen(this.avatar).subscribe((data) => {
       this.user.patchValue({avatar: data});
       console.log(usuario);
-    });
-    usuario= this.user.value;
+    });*/
+   // usuario= this.user.value;
     this.userService.create(usuario).subscribe((res:any) => {
       console.warn(this.user.value);
     })

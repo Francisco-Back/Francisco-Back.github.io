@@ -55,7 +55,7 @@ import { interceptorProvider } from './interceptors/umg-interceptor.service';
     BrowserModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule,
+    BrowserAnimationsModule
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

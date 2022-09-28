@@ -91,6 +91,12 @@ export class UserService {
     )
   }
   
+  UserLigasEstado(id: number): Observable<LigaUser> {
+    return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/Estado/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
 
 /*  find(id: number): Observable<Client> {
     return this.httpClient.get<Client>(this.apiURL + '/client/' + id)
