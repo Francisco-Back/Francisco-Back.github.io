@@ -30,4 +30,5 @@ export class EncabezadoComponent implements OnInit {
     window.location.replace('/#');
 
   }
+
 }

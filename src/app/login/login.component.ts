@@ -53,6 +53,7 @@ export class LoginComponent implements OnInit {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         this.router.navigate(['/principal']);
+        window.location.replace('/principal');
       },
 
       err => {
