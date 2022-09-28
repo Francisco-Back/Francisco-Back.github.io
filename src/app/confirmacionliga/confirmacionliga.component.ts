@@ -13,8 +13,8 @@ import { UserService } from '../services/user.service';
 
 export class ConfirmacionligaComponent implements OnInit {
 liga: Liga = new Liga();
-userID=20;
-ligaID=23;
+userID=10;
+ligaID=12;
 usuarios: Array<any>=[]
   constructor( public database:Database,
     public userService: UserService,

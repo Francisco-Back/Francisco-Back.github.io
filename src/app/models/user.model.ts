@@ -1,5 +1,5 @@
 export class User {
-   // public id: number =0;
+    public id: number =0;
     //public createDate: string | undefined;
     public nombre: string | undefined ;
     public email: string | undefined ;
@@ -12,4 +12,8 @@ export class User {
       this.password = password;
       this.avatar=avatar;
   }
+  public getID(){
+    return this.id;
+  }
+
 }
