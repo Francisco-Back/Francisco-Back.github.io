@@ -34,6 +34,7 @@ export class UserService {
 
   getuserID(correo: string | null): Observable<UserIDS> {
     console.log(correo);
+    console.log(this.httpClient.get<UserIDS>(this.apiURL + '/api/User/Dsearch/' + correo, this.httpOptions));
     return this.httpClient.get<UserIDS>(this.apiURL + '/api/User/Dsearch/' + correo, this.httpOptions);
   }
 
@@ -57,10 +58,14 @@ export class UserService {
   //Service para Ligas
 
   createLiga(liga: Liga, id: number): Observable<Liga> {
-    return this.httpClient.post<Liga>(this.apiURL + '/api/Ligas/' + id, JSON.stringify(liga), this.httpOptions)
+    return this.httpClient.post<Liga>(this.apiURL + '/api/Ligas/Create/' + id, JSON.stringify(liga), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
+  }
+
+  public detail(id: number): Observable<Liga> {
+    return this.httpClient.get<Liga>(this.apiURL + `/api/Ligas/UserT/${id}`);
   }
 
   ligasFindByUserId(id: number): Observable<Liga[]> {

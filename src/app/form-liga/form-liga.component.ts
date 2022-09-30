@@ -3,6 +3,9 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
 import { UserService } from '../services/user.service';
+import{ ToastrService } from 'ngx-toastr';
+import { UserIDS } from '../models/user-id';
+import {UserIDService} from '../services/user-id.service';
 
 
 @Component({
@@ -14,10 +17,14 @@ export class FormLigaComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private toastr: ToastrService,
+    private userIDService: UserIDService,
   ) { }
   liga!: FormGroup;
-  userID =13;
+  userID!: number;
+  errMsj!: string;
+  isLogged = false;
 
   ngOnInit(): void {
     this.liga = new FormGroup({
@@ -26,6 +33,7 @@ export class FormLigaComponent implements OnInit {
       fecha_Final: new FormControl('', Validators.required),
       cant_Equipos: new FormControl('',Validators.required),
     });
+    this.userID= Number(this.userIDService.getIduser());
   }
 
   get f(){
@@ -39,8 +47,21 @@ export class FormLigaComponent implements OnInit {
     console.log(ligue);
     this.userService.createLiga(ligue , this.userID).subscribe((res:any) => {
       console.warn(ligue);
+      this.toastr.success('liga Creada ', 'LIGAS', {
+        timeOut: 3000, positionClass: 'toast-top-center'
+      });
       //this.router.navigateByUrl('/principal');
-    })
+    },
+    err => {
+      this.isLogged = false;
+      this.errMsj = err.error.message;
+      this.toastr.error(this.errMsj, 'Fail', {
+        timeOut: 3000,  positionClass: 'toast-top-center',
+      });
+      // console.log(err.error.message);
+    }
+
+    )
   }
 
 }

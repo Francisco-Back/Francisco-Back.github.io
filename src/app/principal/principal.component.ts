@@ -7,7 +7,7 @@ import { TokenService } from '../services/token.service';
 import { UserService } from '../services/user.service';
 import {UserIDService} from '../services/user-id.service';
 import{ ToastrService } from 'ngx-toastr';
-import { UserIDS } from '../models/user-id';
+
 
 @Component({
   selector: 'app-principal',
@@ -20,9 +20,9 @@ export class PrincipalComponent implements OnInit {
   Jornada3: Array<any>=[]
   ligas: Liga[]=[];
   userEmail!: string | null;
-  userID: number=0;
-  userIDE!: UserIDS;
+  userID!: number ;
   errMsj!: string;
+
 
   isLogged = false;
 
@@ -42,6 +42,7 @@ export class PrincipalComponent implements OnInit {
     this.obtenerUser();
     this.obtenerPartidos();
     this.SetUserID();
+
   }
 
   SetUserID(): void {
@@ -53,7 +54,7 @@ export class PrincipalComponent implements OnInit {
        this.userIDService.setIduser((data.userID));
         this.userIDService.setNameUser(data.userName);
         this.userIDService.setAvatarName(data.avatar);
-     this.toastr.success('Bienvenido ' + data.userID, 'OK', {
+     this.toastr.success('Bienvenido ' + data.userName, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         console.log("datos Cargados")
@@ -68,6 +69,8 @@ export class PrincipalComponent implements OnInit {
         // console.log(err.error.message);
       }
     );
+    this.userID= Number(this.userIDService.getIduser());
+    console.log(this.userID);
   }
 
 
@@ -112,17 +115,19 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
 
   }
   obtenerLiga(){
+     console
     this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
         this.ligas = data;
-        console.log(this.ligas);
+        console.log(this.ligas+"Ligas");
     });
     }
 
   obtenerUser(){
+
       this.userService.GetUserByEmail(this.userEmail).subscribe((data: User[])=>{
         let user: User[] = data;
-        this.userID = user[0].id;
-        console.log(this.userID);
+       // this.userID = user[0].id;
+        console.log(this.userID + "obtener user");
         this.obtenerLiga();
     });
     }

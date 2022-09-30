@@ -18,7 +18,7 @@ export class UserIDService {
     window.sessionStorage.setItem(ID_USER, IdUser);
   }
 
-  public getToken(): string | null {
+  public getIduser(): string | null {
     return sessionStorage.getItem(ID_USER);
   }
 
