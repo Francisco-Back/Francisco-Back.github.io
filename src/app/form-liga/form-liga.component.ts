@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
 import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
+//import{ ToastrService } from 'ngx-toastr';
+//import { UserIDS } from '../models/user-id';
 
 
 @Component({
@@ -21,6 +23,7 @@ export class FormLigaComponent implements OnInit {
   liga!: FormGroup;
   userID =0 ;
 
+
   ngOnInit(): void {
     this.liga = new FormGroup({
       nombreLiga: new FormControl('',Validators.required),
@@ -28,7 +31,9 @@ export class FormLigaComponent implements OnInit {
       fecha_Final: new FormControl('', Validators.required),
       cant_Equipos: new FormControl('',Validators.required),
     });
-    this.userID = Number(this.userIDService.getToken());
+
+    this.userID = Number(this.userIDService.getIduser());
+
   }
 
   get f(){
@@ -41,9 +46,8 @@ export class FormLigaComponent implements OnInit {
     let ligue: Liga = this.liga.value;
     console.log(ligue);
     this.userService.createLiga(ligue , this.userID).subscribe((res:any) => {
-      console.warn(ligue);
-      //this.router.navigateByUrl('/principal');
-    })
+    this.router.navigateByUrl('/principal');
+  })
   }
 
 }

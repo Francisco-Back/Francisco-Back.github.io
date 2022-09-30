@@ -2,13 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { Database, onValue, ref } from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
-import { User } from '../models/user.model';
 import { TokenService } from '../services/token.service';
 import { UserService } from '../services/user.service';
 import {UserIDService} from '../services/user-id.service';
 import{ ToastrService } from 'ngx-toastr';
 import { UserIDS } from '../models/user-id';
 import { LigaUser } from '../models/ligaUser.model';
+
+
 
 @Component({
   selector: 'app-principal',
@@ -25,6 +26,7 @@ export class PrincipalComponent implements OnInit {
   userID!: number | null;
   userIDE!: UserIDS;
   errMsj!: string;
+
 
   isLogged = false;
 
@@ -44,9 +46,11 @@ export class PrincipalComponent implements OnInit {
     //this.obtenerUser();
     this.obtenerPartidos();
     this.SetUserID();
-    this.userID = Number(this.userIDService.getToken());
+    this.userID = Number(this.userIDService.getIduser());
     this.obtenerLiga();
     this.obtenerLigaUser();
+
+
   }
 
   SetUserID(): void {
@@ -58,7 +62,7 @@ export class PrincipalComponent implements OnInit {
        this.userIDService.setIduser((data.userID));
         this.userIDService.setNameUser(data.userName);
         this.userIDService.setAvatarName(data.avatar);
-     this.toastr.success('Bienvenido ' + data.userID, 'OK', {
+     this.toastr.success('Bienvenido ' + data.userName, 'OK', {
           timeOut: 3000, positionClass: 'toast-top-center'
         });
         console.log("datos Cargados")
@@ -73,6 +77,8 @@ export class PrincipalComponent implements OnInit {
         // console.log(err.error.message);
       }
     );
+    this.userID= Number(this.userIDService.getIduser());
+    console.log(this.userID);
   }
 
 
@@ -120,8 +126,9 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
   //Obtener liga Admin
   obtenerLiga(){
    this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
+
         this.ligas = data;
-        console.log(this.ligas);
+        console.log(this.ligas+"Ligas");
     });
     }
 
@@ -138,12 +145,6 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
     });
     }
   /*obtenerUser(){
-      this.userService.GetUserByEmail(this.userEmail).subscribe((data: User[])=>{
-        let user: User[] = data;
-        this.userID = user[0].id;
-        console.log(this.userID);
-        this.obtenerLiga();
-    });
     }*/
   verLiga(id: number){
     this.router.navigate(['/liga/' + id]);

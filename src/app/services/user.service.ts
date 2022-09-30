@@ -34,6 +34,7 @@ export class UserService {
 
   getuserID(correo: string | null): Observable<UserIDS> {
     console.log(correo);
+    console.log(this.httpClient.get<UserIDS>(this.apiURL + '/api/User/Dsearch/' + correo, this.httpOptions));
     return this.httpClient.get<UserIDS>(this.apiURL + '/api/User/Dsearch/' + correo, this.httpOptions);
   }
 
@@ -64,6 +65,7 @@ export class UserService {
   }
 
   ligasFindByUserId(id: number | null): Observable<Liga[]> {
+
     return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas/UserT/' + id)
     .pipe(
       catchError(this.errorHandler)
