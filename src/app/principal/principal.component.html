@@ -17,22 +17,24 @@
     <br>
       <div class="container text-center">
         <div class="row">
-          <div class="col">
+          <div class="col"> 
             <div class="container row offset-md-0 ">
-              <h1 class="h1 color text-light">Ligas a las cuales perteneces</h1>
+              <h1 class="h1 color text-light">Ligas en las que Participas</h1>
             </div>
         <div class="table-wrapper-scroll-y1 my-custom-scrollbar container1-fluid">
             <table class="table table-bordered table-striped mb-0 table-ligth">
               <thead>
                 <tr class="table-light">
+                  <th scope="col">Id Liga</th>
                   <th scope="col">Nombre Liga</th>
                   <th scope="col">Ver Liga</th>
                 </tr>
               </thead>
               <tbody>
-                <tr class="table-light" *ngFor="let liga of ligas">
-                  <td>{{liga.nombreLiga}}</td>
-                  <td><button class="btn btn-primary btn-sm">Ver</button></td>
+                <tr class="table-light" *ngFor="let liga of ligaUser">
+                  <td>{{liga.LigaId}}</td>
+                  <td>{{liga.LigaNombre}}</td>
+                  <td><button (click)="verLiga(liga.LigaId)" class="btn btn-primary btn-sm">Ver</button></td>
                 </tr>
               </tbody>
             </table>

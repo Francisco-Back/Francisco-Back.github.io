@@ -54,16 +54,16 @@ export class UserService {
 
 
   //--------------------------------------------------------------------------------------------
-  //Service para Ligas
+  //Service para Ligas ADMIN
 
   createLiga(liga: Liga, id: number): Observable<Liga> {
-    return this.httpClient.post<Liga>(this.apiURL + '/api/Ligas/' + id, JSON.stringify(liga), this.httpOptions)
+    return this.httpClient.post<Liga>(this.apiURL + '/api/Ligas/Create/' + id, JSON.stringify(liga), this.httpOptions)
     .pipe(
       catchError(this.errorHandler)
     )
   }
 
-  ligasFindByUserId(id: number): Observable<Liga[]> {
+  ligasFindByUserId(id: number | null): Observable<Liga[]> {
     return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas/UserT/' + id)
     .pipe(
       catchError(this.errorHandler)
@@ -91,8 +91,8 @@ export class UserService {
     )
   }
 
-  UserLigasFindByUser(id: number): Observable<LigaUser> {
-    return this.httpClient.get<LigaUser>(this.apiURL + '/api/UserLigas/searchuser/' + id)
+  UserLigasFindByUser(id: number | null): Observable<LigaUser[]> {
+    return this.httpClient.get<LigaUser[]>(this.apiURL + '/api/UserLigas/searchuser/' + id)
     .pipe(
       catchError(this.errorHandler)
     )

@@ -4,6 +4,7 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { push } from '@firebase/database';
 import { Liga } from '../models/liga.model';
 import { User } from '../models/user.model';
+import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -14,7 +15,7 @@ import { UserService } from '../services/user.service';
 
 export class LigaComponent implements OnInit {
 ligas: Liga = new Liga();
-userID=13;
+userID!: number | null;
 LigasId = 0;
 admin = true;
 usuarios: Array<any>=[];
@@ -22,10 +23,12 @@ usuarios: Array<any>=[];
     public database:Database,
     public userService: UserService,
     private route: ActivatedRoute,
+    private userIDService: UserIDService,
     private router: Router) { }
 
   ngOnInit(): void {
     this.LigasId = this.route.snapshot.params['id'];
+    this.userID = Number(this.userIDService.getToken());
       this.obtenerLiga();
       this.obtenerUsuario();
     }
@@ -35,16 +38,9 @@ usuarios: Array<any>=[];
   }
 
   obtenerLiga(){
-    /*const starCountRef = ref(this.database, 'Ligas/');
-    onValue(starCountRef, (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        const childData = childSnapshot.val();
-        let liga ={id:childData.id,nombre:childData.nombre,cantidadEquipos:childData.cantidadEquipos,fechaInicio:childData.fechaInicio,fechaFinal:childData.fechaFinal};
-        this.ligas.push(liga);
-      });
-  });*/
     this.userService.ligasFindById(this.LigasId).subscribe((data:Liga)=>{
         this.ligas = data;
+        let userliga = data.UserEntity_id;
         console.log(this.ligas);
     });
     }

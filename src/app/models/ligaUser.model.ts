@@ -1,6 +1,10 @@
+import { Liga } from "./liga.model";
+import { User } from "./user.model";
+
 export class LigaUser {
     public id: number =0;
-    public userid: number =0;
-    public ligasid: number = 0;
-    public estado: number = 0;
+    public estado: string ="";
+   // public userid: number =0;
+    public ligasEntity: Liga = new Liga;
+    public usuario!: User;
 }

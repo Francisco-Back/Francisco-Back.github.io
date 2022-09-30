@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
+import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 
 
@@ -14,10 +15,11 @@ export class FormLigaComponent implements OnInit {
 
   constructor(
     private userService: UserService,
-    private router: Router
+    private router: Router,
+    private userIDService: UserIDService
   ) { }
   liga!: FormGroup;
-  userID =13;
+  userID =0 ;
 
   ngOnInit(): void {
     this.liga = new FormGroup({
@@ -26,6 +28,7 @@ export class FormLigaComponent implements OnInit {
       fecha_Final: new FormControl('', Validators.required),
       cant_Equipos: new FormControl('',Validators.required),
     });
+    this.userID = Number(this.userIDService.getToken());
   }
 
   get f(){

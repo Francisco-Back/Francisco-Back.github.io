@@ -8,6 +8,7 @@ import { UserService } from '../services/user.service';
 import {UserIDService} from '../services/user-id.service';
 import{ ToastrService } from 'ngx-toastr';
 import { UserIDS } from '../models/user-id';
+import { LigaUser } from '../models/ligaUser.model';
 
 @Component({
   selector: 'app-principal',
@@ -15,12 +16,13 @@ import { UserIDS } from '../models/user-id';
   styleUrls: ['./principal.component.css']
 })
 export class PrincipalComponent implements OnInit {
-  Jornada1: Array<any>=[]
-  Jornada2: Array<any>=[]
-  Jornada3: Array<any>=[]
-  ligas: Liga[]=[];
+  Jornada1: Array<any>=[];
+  Jornada2: Array<any>=[];
+  Jornada3: Array<any>=[];
+  ligas: Liga[]=[]; //almacena las ligas que yo administro
+  ligaUser: Array<any>=[]; //almacena las ligas que pertenezco
   userEmail!: string | null;
-  userID: number=0;
+  userID!: number | null;
   userIDE!: UserIDS;
   errMsj!: string;
 
@@ -39,9 +41,12 @@ export class PrincipalComponent implements OnInit {
 
   ngOnInit(): void {
     this.userEmail= this.tokenService.getUserName();
-    this.obtenerUser();
+    //this.obtenerUser();
     this.obtenerPartidos();
     this.SetUserID();
+    this.userID = Number(this.userIDService.getToken());
+    this.obtenerLiga();
+    this.obtenerLigaUser();
   }
 
   SetUserID(): void {
@@ -111,21 +116,35 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
 });
 
   }
+
+  //Obtener liga Admin
   obtenerLiga(){
-    this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
+   this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
         this.ligas = data;
         console.log(this.ligas);
     });
     }
 
-  obtenerUser(){
+//Obtener liga User
+
+    obtenerLigaUser(){
+      this.userService.UserLigasFindByUser(this.userID).subscribe((data: LigaUser[])=>{
+        data.forEach((childSnapshot) => {
+          const Data1 = childSnapshot;
+          let liga ={LigaId:Data1.ligasEntity.id, LigaNombre:Data1.ligasEntity.nombreLiga };
+          this.ligaUser.push(liga);
+        });
+        console.log(this.ligaUser);
+    });
+    }
+  /*obtenerUser(){
       this.userService.GetUserByEmail(this.userEmail).subscribe((data: User[])=>{
         let user: User[] = data;
         this.userID = user[0].id;
         console.log(this.userID);
         this.obtenerLiga();
     });
-    }
+    }*/
   verLiga(id: number){
     this.router.navigate(['/liga/' + id]);
   }
