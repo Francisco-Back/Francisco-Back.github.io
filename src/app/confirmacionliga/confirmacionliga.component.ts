@@ -3,6 +3,7 @@ import {Database,set,ref,update,onValue} from '@angular/fire/database';
 import { Router } from '@angular/router';
 import { push } from '@firebase/database';
 import { Liga } from '../models/liga.model';
+import { LigaUser } from '../models/ligaUser.model';
 import { UserService } from '../services/user.service';
 
 @Component({
@@ -15,12 +16,12 @@ export class ConfirmacionligaComponent implements OnInit {
 liga: Liga = new Liga();
 userID=10;
 ligaID=12;
-usuarios: Array<any>=[]
+usuarios: Array<any>=[];
   constructor( public database:Database,
     public userService: UserService,
     private router: Router) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void { 
       this.obtenerLiga();
       this.obtenerUsuario();
     }
@@ -42,15 +43,14 @@ usuarios: Array<any>=[]
     }
 
     obtenerUsuario(){
-            const starCountRef = ref(this.database, 'Usuarios/');
-            onValue(starCountRef, (snapshot) => {
-              snapshot.forEach((childSnapshot) => {
-                const childData = childSnapshot.val();
-                let usuario ={nombre:childData.nombre,correo:childData.correo};
-                this.usuarios.push(usuario);
-              });
-          });
-            }
+      this.userService.UserLigasFindByLigaID(this.ligaID).subscribe((data: LigaUser[])=>{
+        data.forEach((childSnapshot) => {
+          const Data1 = childSnapshot;
+          let usuario ={Nombre:Data1.usuario.nombre, Correo:Data1.usuario.email };
+          this.usuarios.push(usuario);
+        });
+        console.log(this.usuarios);
+        });
 
 }
-
+  }
