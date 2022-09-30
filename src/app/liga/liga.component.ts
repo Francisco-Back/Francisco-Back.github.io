@@ -28,7 +28,7 @@ usuarios: Array<any>=[];
 
   ngOnInit(): void {
     this.LigasId = this.route.snapshot.params['id'];
-    this.userID = Number(this.userIDService.getToken());
+    this.userID = Number(this.userIDService.getIduser());
       this.obtenerLiga();
       this.obtenerUsuario();
     }
