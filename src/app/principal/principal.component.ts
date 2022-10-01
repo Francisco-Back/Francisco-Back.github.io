@@ -46,9 +46,8 @@ export class PrincipalComponent implements OnInit {
     //this.obtenerUser();
     this.obtenerPartidos();
     this.SetUserID();
-    this.userID = Number(this.userIDService.getIduser());
-    this.obtenerLiga();
-    this.obtenerLigaUser();
+   //
+
 
 
   }
@@ -62,11 +61,13 @@ export class PrincipalComponent implements OnInit {
        this.userIDService.setIduser((data.userID));
         this.userIDService.setNameUser(data.userName);
         this.userIDService.setAvatarName(data.avatar);
-     this.toastr.success('Bienvenido ' + data.userName, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+     this.toastr.success('Bienvenido ' + data.userName+data.userID, 'OK', {
+          timeOut: 3000
         });
+        this.userID = Number(this.userIDService.getIduser());
         console.log("datos Cargados")
-
+        this.obtenerLiga();
+        this.obtenerLigaUser();
       },
       err => {
         this.isLogged = false;
@@ -77,7 +78,6 @@ export class PrincipalComponent implements OnInit {
         // console.log(err.error.message);
       }
     );
-    this.userID= Number(this.userIDService.getIduser());
     console.log(this.userID);
   }
 
@@ -125,6 +125,7 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
 
   //Obtener liga Admin
   obtenerLiga(){
+    console.log("obtenerLiga "+this.userID);
    this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
 
         this.ligas = data;
@@ -135,6 +136,8 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
 //Obtener liga User
 
     obtenerLigaUser(){
+      console.log("obtenerLigaUser "+this.userID);
+
       this.userService.UserLigasFindByUser(this.userID).subscribe((data: LigaUser[])=>{
         data.forEach((childSnapshot) => {
           const Data1 = childSnapshot;

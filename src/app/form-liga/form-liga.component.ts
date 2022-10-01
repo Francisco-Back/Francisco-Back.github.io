@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Liga } from '../models/liga.model';
 import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
-//import{ ToastrService } from 'ngx-toastr';
+import{ ToastrService } from 'ngx-toastr';
 //import { UserIDS } from '../models/user-id';
 
 
@@ -18,11 +18,13 @@ export class FormLigaComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private userIDService: UserIDService
+    private userIDService: UserIDService,
+    private toastr: ToastrService
   ) { }
   liga!: FormGroup;
   userID =0 ;
-
+  isLogged = false;
+  errMsj!: string;
 
   ngOnInit(): void {
     this.liga = new FormGroup({
@@ -46,7 +48,19 @@ export class FormLigaComponent implements OnInit {
     let ligue: Liga = this.liga.value;
     console.log(ligue);
     this.userService.createLiga(ligue , this.userID).subscribe((res:any) => {
+      this.toastr.success('Liga Creada Con Exito', 'Ligas', {
+        timeOut: 3000
+      });
     this.router.navigateByUrl('/principal');
+  },
+
+  err => {
+    this.isLogged = false;
+    this.errMsj = err.error.message;
+    this.toastr.error(this.errMsj, 'Fail', {
+      timeOut: 3000,  positionClass: 'toast-top-center',
+    });
+    // console.log(err.error.message);
   })
   }
 

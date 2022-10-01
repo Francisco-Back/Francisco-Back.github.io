@@ -27,7 +27,7 @@ export class EncabezadoComponent implements OnInit {
 
   onLogOut(): void {
     this.tokenService.logOut();
-    window.location.replace('/#');
+    window.location.replace('/');
 
   }
 

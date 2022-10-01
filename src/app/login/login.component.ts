@@ -50,11 +50,11 @@ export class LoginComponent implements OnInit {
         this.tokenService.setAuthorities(data.authorities);
         this.roles = data.authorities;
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
-          timeOut: 3000, positionClass: 'toast-top-center'
+          timeOut: 3000
         });
 
-        this.router.navigate(['/principal']);
-        window.location.replace('/principal');
+        //this.router.navigate(['/principal']);
+       window.location.replace('/principal');
       },
 
       err => {

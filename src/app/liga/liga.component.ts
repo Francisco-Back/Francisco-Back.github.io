@@ -39,10 +39,12 @@ usuarios: Array<any>=[];
   }
 
   obtenerLiga(){
+
     this.userService.ligasFindById(this.LigasId).subscribe((data:Liga)=>{
         this.ligas = data;
-        let userliga = data.UserEntity_id;
-        console.log(this.ligas);
+        let userliga = this.ligas.id;
+        console.log(this.ligas.id);
+        console.log(userliga);
     });
     }
 
