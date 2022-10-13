@@ -71,8 +71,15 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
+
   ligasFindById(id: number): Observable<Liga>{
     return this.httpClient.get<Liga>(this.apiURL + '/api/Ligas/LigasUser/' + id)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+  Verificador(id: number): Observable<number>{
+    return this.httpClient.get<number>(this.apiURL + '/api/Ligas/Verificador/' + id)
     .pipe(
       catchError(this.errorHandler)
     )

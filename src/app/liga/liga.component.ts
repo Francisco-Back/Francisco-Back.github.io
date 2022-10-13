@@ -19,6 +19,9 @@ ligas: Liga = new Liga();
 userID!: number | null;
 LigasId = 0;
 admin = true;
+aux!: number | null;
+
+
 usuarios: Array<any>=[];
   constructor(
     public database:Database,
@@ -39,11 +42,17 @@ usuarios: Array<any>=[];
   }
 
   obtenerLiga(){
+    this.userService.Verificador(this.LigasId).subscribe((data:number)=>{
+     this.aux=data;
+     console.log("Id Usuario Dueño");
+      console.log(this.aux);
+    }
+    );
 
     this.userService.ligasFindById(this.LigasId).subscribe((data:Liga)=>{
         this.ligas = data;
         let userliga = this.ligas.id;
-        console.log(this.ligas.id);
+        console.log("Liga ID");
         console.log(userliga);
     });
     }
