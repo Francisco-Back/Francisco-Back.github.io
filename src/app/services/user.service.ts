@@ -113,6 +113,14 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
+
+  ChangeEstado(idUnion: number, estado:number): Observable<LigaUser> {
+    return this.httpClient.patch<LigaUser>(this.apiURL + '/api/UserLigas/update/Estado/' + idUnion + '/'+estado, this.httpOptions)
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
 /*  find(id: number): Observable<Client> {
     return this.httpClient.get<Client>(this.apiURL + '/client/' + id)
     .pipe(

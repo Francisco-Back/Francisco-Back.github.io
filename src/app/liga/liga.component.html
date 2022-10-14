@@ -12,93 +12,148 @@
 <div class="container-fluid">
   <h2 class="featurette-heading1">Información de la Liga</h2>
 </div>
+<div class="row">
+  <div class="col">
+    <div class="container-fluid">
+      <table class="table">
+        <thead>
+        <tr class="table-light">
+          <th scope="col">Id Liga</th>
+          <th scope="col">Nombre Liga</th>
+          <th scope="col">Cantidad Equipos</th>
+          <th scope="col">Fecha Inicio</th>
+          <th scope="col">Fecha Final</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-light">
+          <th scope="row">{{ligas.id}}</th>
+          <td>{{ligas.nombreLiga}}</td>
+          <td>{{ligas.cant_Equipos}}</td>
+          <td>{{ligas.fecha_Inicio}}</td>
+          <td>{{ligas.fecha_Final}}</td>
+        </tr>
+        </tbody>
+      </table>
+      <hr class="featurette-divider">
+    </div>
+  </div>
 
-<div class="container-fluid">
-  <table class="table">
-    <thead>
-    <tr class="table-light">
-      <th scope="col">Id Liga</th>
-      <th scope="col">Nombre Liga</th>
-      <th scope="col">Cantidad Equipos</th>
-      <th scope="col">Fecha Inicio</th>
-      <th scope="col">Fecha Final</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="table-light">
-      <th scope="row">{{ligas.id}}</th>
-      <td>{{ligas.nombreLiga}}</td>
-      <td>{{ligas.cant_Equipos}}</td>
-      <td>{{ligas.fecha_Inicio}}</td>
-      <td>{{ligas.fecha_Final}}</td>
-    </tr>
-    </tbody>
-  </table>
-  <hr class="featurette-divider">
 </div>
 
-
-<div class="container-fluid">
-  <h4> Usuarios de la Liga</h4>
-</div>
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid flex w-50 pos">
-  <table class="table table-bordered table-dark">
-    <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope = "col">User</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="table-secondary" *ngFor="let usuario of usuarios">
-      <td>{{usuario.Nombre}}</td>
-      <td>{{usuario.Correo}}</td>
-    </tr>
-    </tbody>
-  </table>
-  <hr class="featurette-divider">
-</div>
-
-<div class="container-fluid" *ngIf="admin">
-  <h4> Usuarios Pendientes</h4>
-  <p>Estos usuarios estan pendientes de ser aceptados en la liga</p>
-</div>
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid flex w-50 pos" *ngIf="admin">
-  <table class="table table-bordered table-dark">
-    <thead>
-    <tr>
-      <th scope="col">Nombre</th>
-      <th scope = "col">User</th>
-      <th scope = "col">Opciones</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr class="table-secondary" *ngFor="let usuario of usuarios">
-      <td>{{usuario.Nombre}}</td>
-      <td>{{usuario.Correo}}</td>
-      <td><button class="btn btn-primary btn-sm">Aceptar</button>
-        <button class="btn btn-danger btn-sm margin-left">Rechazar</button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
-  <hr class="featurette-divider">
-</div>
-
-
-<br><br>
+<div class="row">
+  <div class="col">
 <div class="form-group container-fluid flex w-50 pos">
+  <h4>Invitar a un Usuario</h4>
   <input type="text" class="form-control" name="correo" placeholder="Ingrese Correo" required="required">
   <span class="help-block featurette-heading3">Ingrese el correo del Usuario al que desea invitar a la Liga.</span>
 </div>
-<div class="form-group container-fluid flex w-50 pos">
+<div class="form-group container-fluid flex w-50">
   <button type="submit" class="btn btn-primary button1">Invitar Usuario</button>
 </div>
+</div>
+<div class="col">
+  <div class="container-fluid" *ngIf="admin">
+    <h4> Usuarios Pendientes</h4>
+    <p>Estos usuarios estan pendientes de ser aceptados en la liga</p>
+  </div>
+  
+  <div class="table-wrapper-scroll-y2 my-custom-scrollbar container2-fluid flex " *ngIf="admin">
+    <table class="table table-bordered table-dark">
+      <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope = "col">User</th>
+        <th scope = "col">Opciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-secondary" *ngFor="let usuario of usuarios">
+        <td>{{usuario.Nombre}}</td>
+        <td>{{usuario.Correo}}</td>
+        <td><button class="btn btn-primary btn-sm" (click)="Aceptar(usuario.IdUnion)">Aceptar</button>
+          <button class="btn btn-danger btn-sm margin-left" (click)="Rechazar(usuario.IdUnion)" >Rechazar</button>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    <hr class="featurette-divider">
+  </div>
+</div>
+</div>
 
-<br><br>
-<br><br>
+
+<div class="row">
+  <div class="col"> 
+    <div class="container-fluid">
+      <h4>Participantes y Ranking</h4>
+    </div>
+
+    <div class="table-wrapper-scroll-y2 my-custom-scrollbar1 container2-fluid ">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th scope="col">Nombre</th>
+          <th scope = "col">User</th>
+          <th scope="col">Ranking</th>
+          <th scope="col">Punteo</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr class="table-secondary" *ngFor="let usuario of usuarios">
+          <td>{{usuario.Nombre}}</td>
+          <td>{{usuario.Correo}}</td>
+          <td>{{usuario.Estado}}</td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
+      <hr class="featurette-divider">
+    </div>
+  </div>
+
+  <div class="col">
+
+    <div class="container row offset-md-0 ">
+      <h4>Partidos</h4>
+    </div>
+  <div class="table-wrapper-scroll-y2 my-custom-scrollbar1 container2-fluid">
+    <div class="col-sm-150 "  *ngFor="let Jr1 of partidos; index as i" >
+
+      <table class="table rounded-3 table-bordered table-striped mb-0" >
+        <thead>
+         <tr>
+           <th>Grupo</th>
+           <th>{{Jr1.grupos1}}</th>
+           <th>Informacion</th>
+           <th>Opciones</th>
+         </tr>
+        </thead>
+           <tbody>
+               <tr>
+                   <td><img class="img-fluid"  width="100" src={{Jr1.bandera1}}/></td>
+                   <td>{{Jr1.pais1}}</td>
+                   <td>{{Jr1.fecha}}</td>
+                   <td><button class="btn button1 btn-sm">Ver Informacion</button></td>
+               </tr>
+           </tbody>
+           <tbody>
+             <tr>
+                 <td><img class="img-fluid"  width="100" src={{Jr1.bandera2}}/></td>
+                 <td>{{Jr1.pais2}}</td>
+                 <td>{{Jr1.horario}}</td>
+                 <td><button  class="btn button1 btn-sm" >Realizar Vaticinio</button></td>
+             </tr>
+         </tbody>
+       </table>
+
+    </div>
+
+  </div>
+  </div>
+
+</div>
+<hr class="featurette-divider">
 
 </body>
 </html>

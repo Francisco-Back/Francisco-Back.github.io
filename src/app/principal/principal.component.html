@@ -50,7 +50,9 @@
     <br>
     <br>
     <br>
+    
     <div class="col">
+      <!--
       <div class="container row offset-md-0 ">
         <h1 class="h1 color text-light">Grupos</h1>
       </div>
@@ -88,42 +90,43 @@
       </div>
 
     </div>
+    -->
+    <div class="container row offset-md-0 ">
+      <h1 class="h1 color text-light">Administrar mis Ligas </h1>
+    </div>
+    <div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid">
+      
+      <div class="container-fluid">
+        <table class="table">
+          <thead>
+          <tr class="table-light">
+            <th scope="col">Id Liga</th>
+            <th scope="col">Nombre Liga</th>
+            <th scope="col">Cantidad Equipos</th>
+            <th scope="col">Fecha Inicio</th>
+            <th scope="col">Fecha Final</th>
+            <th scope="col">Ver Liga</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr class="table-light" *ngFor="let liga of ligas">
+            <th scope="row">{{liga.id}}</th>
+            <td>{{liga.nombreLiga}}</td>
+            <td>{{liga.cant_Equipos}}</td>
+            <td>{{liga.fecha_Inicio}}</td>
+            <td>{{liga.fecha_Final}}</td>
+            <td><button class="btn btn-primary btn-sm" (click)="verLiga(liga.id)">Ver</button></td>
+          </tr>
+          </tbody>
+        </table>
+        <hr class="featurette-divider">
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
-
 <br>
-<div class="container row offset-md-5 ">
-  <h1 class="h1 color text-light">Administrar mis Ligas </h1>
-</div>
-
-<div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid">
-  <div class="container-fluid">
-    <table class="table">
-      <thead>
-      <tr class="table-light">
-        <th scope="col">Id Liga</th>
-        <th scope="col">Nombre Liga</th>
-        <th scope="col">Cantidad Equipos</th>
-        <th scope="col">Fecha Inicio</th>
-        <th scope="col">Fecha Final</th>
-        <th scope="col">Ver Liga</th>
-      </tr>
-      </thead>
-      <tbody>
-      <tr class="table-light" *ngFor="let liga of ligas">
-        <th scope="row">{{liga.id}}</th>
-        <td>{{liga.nombreLiga}}</td>
-        <td>{{liga.cant_Equipos}}</td>
-        <td>{{liga.fecha_Inicio}}</td>
-        <td>{{liga.fecha_Final}}</td>
-        <td><button class="btn btn-primary btn-sm" (click)="verLiga(liga.id)">Ver</button></td>
-      </tr>
-      </tbody>
-    </table>
-    <hr class="featurette-divider">
-  </div>
-</div>
 <br>
 <br>
 </body>
