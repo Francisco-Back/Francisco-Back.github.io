@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../services/token.service';
 import{ ToastrService } from 'ngx-toastr';
+import { catchError, of } from 'rxjs';
 
 @Component({
   selector: 'app-login',
@@ -55,16 +56,13 @@ export class LoginComponent implements OnInit {
 
         //this.router.navigate(['/principal']);
        window.location.replace('/principal');
-      },
-
-      err => {
+      }, error =>{
         this.isLogged = false;
-        this.errMsj = err.error.message;
-        this.toastr.error(this.errMsj, 'Fail', {
+        this.toastr.error('Login Incorrecto', 'Fail', {
           timeOut: 6000,  positionClass: 'toast-top-center',
         });
-        // console.log(err.error.message);
       }
+      
     );
   }
 

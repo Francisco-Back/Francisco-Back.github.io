@@ -53,6 +53,11 @@ export class UserService {
     )
   }
 
+  InvitarLiga(correo: String, id:number|null): Observable<String> {
+    return this.httpClient.post<String>(this.apiURL + '/api/User/Invitacion/'+id+'/'+correo, this.httpOptions);
+  }
+
+
 
   //--------------------------------------------------------------------------------------------
   //Service para Ligas ADMIN

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { ImagenService } from '../services/imagen.service';
 import { UserService } from '../services/user.service';
@@ -15,7 +16,8 @@ export class RegisterComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router,
-    private imagenService: ImagenService
+    private imagenService: ImagenService,
+    private toastr: ToastrService
   ) { }
   user!: FormGroup;
 
@@ -40,11 +42,18 @@ export class RegisterComponent implements OnInit {
       this.user.patchValue({avatar: data});
       console.log(usuario);
     });*/
-   // usuario= this.user.value;
     this.userService.create(usuario).subscribe((res:any) => {
-      console.warn(this.user.value);
+      this.toastr.success('Registro Exitoso ' + usuario.nombre, 'OK', {
+        timeOut: 6000,  positionClass: 'toast-top-center',
+      });
+      this.router.navigateByUrl('/login');
+    }, 
+    error =>{
+      console.log(error);
+      this.toastr.error('Registro Fallo, porfavor intente en unos minutos', 'Fail', {
+        timeOut: 6000,  positionClass: 'toast-top-center',
+      });
     })
-    this.router.navigateByUrl('/login');
   }
   onFileChange(event:any){
     this.avatar = event.target.files[0];

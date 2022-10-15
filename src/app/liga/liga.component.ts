@@ -7,6 +7,7 @@ import { LigaUser } from '../models/ligaUser.model';
 import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 import{ ToastrService } from 'ngx-toastr';
+import { User } from '../models/user.model';
 
 
 @Component({
@@ -22,6 +23,7 @@ LigasId = 0;
 admin = false;
 aux!: number | null;
 usuarios: Array<any>=[];
+usuariosPendientes: Array<any>=[];
 partidos: Array<any>=[];
   constructor(
     public database:Database,
@@ -42,7 +44,6 @@ partidos: Array<any>=[];
   obtenerLiga(){
     this.userService.Verificador(this.LigasId).subscribe((data:number)=>{
      this.aux=data;
-     console.log("usuario",this.aux);
      if(this.aux==this.userID){
       this.admin = true;
     }else{
@@ -55,8 +56,6 @@ partidos: Array<any>=[];
     this.userService.ligasFindById(this.LigasId).subscribe((data:Liga)=>{
         this.ligas = data;
         let userliga = this.ligas.id;
-        console.log("Liga ID");
-        console.log(userliga);
     });
     }
 
@@ -65,9 +64,12 @@ partidos: Array<any>=[];
         data.forEach((childSnapshot) => {
           const Data1 = childSnapshot;
           let usuario ={IdUnion:Data1.id,Estado:Data1.estado,Nombre:Data1.usuario.nombre, Correo:Data1.usuario.email };
-          this.usuarios.push(usuario);
+          if(usuario.Estado=='Pendiente'){
+            this.usuariosPendientes.push(usuario);
+          }else if(usuario.Estado=='Aceptado'){
+            this.usuarios.push(usuario);
+          }
         });
-        console.log(this.usuarios);
         });
 
   }
@@ -91,7 +93,13 @@ partidos: Array<any>=[];
         timeOut: 3000
       });
       
-  });
+  }, 
+  error =>{
+    this.toastr.error('Error al aceptar Usuario:'+error.status, 'Fail', {
+      timeOut: 6000,  positionClass: 'toast-top-center',
+    });
+  }
+    );
   }
 
   Rechazar(id:number){
@@ -100,8 +108,35 @@ partidos: Array<any>=[];
         timeOut: 3000
       });
       
+  }, 
+  error =>{
+    this.toastr.error('Error al rechazar usuario:'+error.status, 'Fail', {
+      timeOut: 6000,  positionClass: 'toast-top-center',
+    });
   });
 
   }
+//Funcion para Invitar Usuarios
 
+invitarUsuario(correo:String){
+  this.userService.InvitarLiga(correo, this.userID).subscribe((data:String)=>{
+    this.toastr.success('Usuario Invitado: '+correo, 'OK', {
+      timeOut: 3000
+    });
+    
+}, 
+error =>{
+
+  if(error.status == '200'){
+    this.toastr.success('Usuario Invitado: '+correo, 'OK', {
+      timeOut: 3000
+    });
+  }else{
+  this.toastr.error('Error al invitar Usuario:'+error.status, 'Fail', {
+    timeOut: 6000,  positionClass: 'toast-top-center',
+  });
+}
+}
+  );
+}
 }

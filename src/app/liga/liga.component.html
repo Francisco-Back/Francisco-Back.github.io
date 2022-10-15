@@ -43,14 +43,16 @@
 
 <div class="row">
   <div class="col">
-<div class="form-group container-fluid flex w-50 pos">
+<div class="container-fluid flex w-75">
   <h4>Invitar a un Usuario</h4>
-  <input type="text" class="form-control" name="correo" placeholder="Ingrese Correo" required="required">
-  <span class="help-block featurette-heading3">Ingrese el correo del Usuario al que desea invitar a la Liga.</span>
+  <input type="text" class="form-control" name="correo" placeholder="Ingrese Correo" required="required" #correo>
+  <p>Ingrese el correo del Usuario al que desea invitar a la Liga.</p>
 </div>
 <div class="form-group container-fluid flex w-50">
-  <button type="submit" class="btn btn-primary button1">Invitar Usuario</button>
+  <button class="btn btn-primary button1" (click)="invitarUsuario(correo.value)">Invitar Usuario</button>
 </div>
+<hr class="featurette-divider">
+
 </div>
 <div class="col">
   <div class="container-fluid" *ngIf="admin">
@@ -68,7 +70,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr class="table-secondary" *ngFor="let usuario of usuarios">
+      <tr class="table-secondary" *ngFor="let usuario of usuariosPendientes">
         <td>{{usuario.Nombre}}</td>
         <td>{{usuario.Correo}}</td>
         <td><button class="btn btn-primary btn-sm" (click)="Aceptar(usuario.IdUnion)">Aceptar</button>
@@ -103,7 +105,7 @@
         <tr class="table-secondary" *ngFor="let usuario of usuarios">
           <td>{{usuario.Nombre}}</td>
           <td>{{usuario.Correo}}</td>
-          <td>{{usuario.Estado}}</td>
+          <td></td>
           <td></td>
         </tr>
         </tbody>
