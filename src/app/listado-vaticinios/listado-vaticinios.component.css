@@ -1,0 +1,18 @@
+.container1{
+      font-family: Arial;
+      font-size: x-large;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      flex-wrap: wrap;
+  }
+
+.table{
+
+  background-color:#ffffff;
+  width: 100%;
+  border-collapse: collapse;
+
+}
+
+
