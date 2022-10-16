@@ -44,8 +44,19 @@
       <div class="container row offset-md-0 ">
         <h1 class="h1 color text-light">Ingreso Marcador</h1>
       </div>
+      <br>
 
+      <form [formGroup]="marcadorForm" (ngSumbit)="onSubmit()">
+        <label for="marcador1">Equipo 1: </label>
+        <input id="marcador1" type="number" formControlName="marcador1">
+        <br>
+        <label for="marcador2">Equipo 2: </label>
+        <input id="marcador2" type="number" formControlName="marcador2">
+        <br>
+        <button type="submit" [disabled]="!marcadorForm.valid">Ingresar</button>
+      </form>
 
+      
 
 
 

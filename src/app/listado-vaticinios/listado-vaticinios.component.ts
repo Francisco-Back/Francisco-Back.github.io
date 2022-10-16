@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { FormGroup, FormControl } from '@angular/forms';
 
 
 
@@ -11,9 +11,21 @@ import { Router } from '@angular/router';
 })
 export class ListadoVaticiniosComponent implements OnInit {
 
+  marcadorForm = new FormGroup({
+  marcador1: new FormControl(''),
+  marcador2: new FormControl('')
+  });
+
   constructor() { }
 
   ngOnInit(): void {
+  this.onSubmit();
   }
+
+  onSubmit(){
+    console.warn(this.marcadorForm.value);
+  }
+
+
 
 }
