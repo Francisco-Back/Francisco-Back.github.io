@@ -49,7 +49,7 @@ partidos: Array<any>=[];
     }else{
       this.admin = false;
     }
-     
+
     }
     );
 
@@ -92,8 +92,8 @@ partidos: Array<any>=[];
       this.toastr.success('Usuario Aceptado', 'OK', {
         timeOut: 3000
       });
-      
-  }, 
+
+  },
   error =>{
     this.toastr.error('Error al aceptar Usuario:'+error.status, 'Fail', {
       timeOut: 6000,  positionClass: 'toast-top-center',
@@ -107,8 +107,8 @@ partidos: Array<any>=[];
       this.toastr.success('Usuario Rechazado', 'OK', {
         timeOut: 3000
       });
-      
-  }, 
+
+  },
   error =>{
     this.toastr.error('Error al rechazar usuario:'+error.status, 'Fail', {
       timeOut: 6000,  positionClass: 'toast-top-center',
@@ -123,8 +123,8 @@ invitarUsuario(correo:String){
     this.toastr.success('Usuario Invitado: '+correo, 'OK', {
       timeOut: 3000
     });
-    
-}, 
+
+},
 error =>{
 
   if(error.status == '200'){
