@@ -25,7 +25,6 @@ import { ToastrModule } from 'ngx-toastr';
 import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { interceptorProvider } from './interceptors/umg-interceptor.service';
-import { VaticinioComponent } from './vaticinio/vaticinio.component';
 
 
 @NgModule({
@@ -44,8 +43,7 @@ import { VaticinioComponent } from './vaticinio/vaticinio.component';
     PrincipalComponent,
     LigaComponent,
     ConfirmacionligaComponent,
-    FormLigaComponent,
-    VaticinioComponent
+    FormLigaComponent
   ],
   imports: [
     BrowserModule,
