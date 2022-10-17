@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ListadoVaticiniosComponent } from './listado-vaticinios.component';
 
 describe('ListadoVaticiniosComponent', () => {

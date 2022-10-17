@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormControl } from '@angular/forms';
-
-
 
 @Component({
   selector: 'app-listado-vaticinios',
@@ -11,21 +8,16 @@ import { FormGroup, FormControl } from '@angular/forms';
 })
 export class ListadoVaticiniosComponent implements OnInit {
 
-  marcadorForm = new FormGroup({
-  marcador1: new FormControl(''),
-  marcador2: new FormControl('')
-  });
+  marcador1!: number;
+  marcador2!: number;
 
   constructor() { }
 
   ngOnInit(): void {
-  this.onSubmit();
   }
 
   onSubmit(){
-    console.warn(this.marcadorForm.value);
+      console.warn(this.marcador1);
   }
-
-
 
 }
