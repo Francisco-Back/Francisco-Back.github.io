@@ -12,6 +12,7 @@ import { LigaComponent } from './liga/liga.component';
 import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.component';
 import { SedesComponent } from './sedes/sedes.component';
 import { FormLigaComponent } from './form-liga/form-liga.component';
+import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticinios.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch:'full'},
@@ -26,6 +27,7 @@ const routes: Routes = [
   { path: 'liga/:id', component: LigaComponent},
   { path: 'confirmacionliga', component: ConfirmacionligaComponent},
   { path: 'form-liga', component: FormLigaComponent},
+  { path: 'listado-vaticinios', component: ListadoVaticiniosComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 
