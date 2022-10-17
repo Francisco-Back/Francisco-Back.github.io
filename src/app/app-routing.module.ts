@@ -13,6 +13,7 @@ import { ConfirmacionligaComponent } from './confirmacionliga/confirmacionliga.c
 import { SedesComponent } from './sedes/sedes.component';
 import { FormLigaComponent } from './form-liga/form-liga.component';
 import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticinios.component';
+import { AllLigasComponent } from './all-ligas/all-ligas.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch:'full'},
@@ -28,6 +29,7 @@ const routes: Routes = [
   { path: 'confirmacionliga', component: ConfirmacionligaComponent},
   { path: 'form-liga', component: FormLigaComponent},
   { path: 'listado-vaticinios', component: ListadoVaticiniosComponent },
+  { path: 'ligas', component: AllLigasComponent},
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

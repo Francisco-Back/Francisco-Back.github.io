@@ -26,6 +26,8 @@ import { FormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { interceptorProvider } from './interceptors/umg-interceptor.service';
 import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticinios.component';
+import { AllLigasComponent } from './all-ligas/all-ligas.component';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -45,7 +47,8 @@ import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticin
     LigaComponent,
     ConfirmacionligaComponent,
     FormLigaComponent,
-    ListadoVaticiniosComponent
+    ListadoVaticiniosComponent,
+    AllLigasComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +60,8 @@ import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticin
     BrowserModule,
     FormsModule,
     ToastrModule.forRoot(),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    Ng2SearchPipeModule,
   ],
   providers: [interceptorProvider],
   bootstrap: [AppComponent]

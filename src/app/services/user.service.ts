@@ -6,6 +6,7 @@ import { User } from '../models/user.model';
 import { UserIDS } from '../models/user-id';
 import { Liga } from '../models/liga.model';
 import { LigaUser } from '../models/ligaUser.model';
+import { Partido } from '../models/partido.model';
 
 @Injectable({
   providedIn: 'root'
@@ -69,6 +70,13 @@ export class UserService {
     )
   }
 
+  allLigas():Observable<Liga[]> {
+    return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas')
+    .pipe(
+      catchError(this.errorHandler)
+    )
+  }
+
   ligasFindByUserId(id: number | null): Observable<Liga[]> {
 
     return this.httpClient.get<Liga[]>(this.apiURL + '/api/Ligas/UserT/' + id)
@@ -125,6 +133,34 @@ export class UserService {
       catchError(this.errorHandler)
     )
   }
+
+      //Service Partidos
+
+      //Get all partidos
+      allPartidos():Observable<Partido[]> {
+        return this.httpClient.get<Partido[]>(this.apiURL + '/api/Partidos')
+        .pipe(
+          catchError(this.errorHandler)
+        )
+      }
+
+      //Get partido por id
+
+      partidoFindByID(id: number | null): Observable<Partido[]> {
+        return this.httpClient.get<Partido[]>(this.apiURL + '/api/Partidos/Search/' + id)
+        .pipe(
+          catchError(this.errorHandler)
+        )
+      }
+
+      //Update Marcaje Partido
+      
+      updateMarcajePartido(id: number, marcaje1:number,marcaje2:number): Observable<Partido> {
+        return this.httpClient.patch<Partido>(this.apiURL + '/api/Partidos/Update/'+marcaje1 +'/'+marcaje2,+'/'+id , this.httpOptions)
+        .pipe(
+          catchError(this.errorHandler)
+        )
+      }
 
 /*  find(id: number): Observable<Client> {
     return this.httpClient.get<Client>(this.apiURL + '/client/' + id)

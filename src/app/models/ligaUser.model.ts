@@ -7,4 +7,7 @@ export class LigaUser {
    // public userid: number =0;
     public ligasEntity: Liga = new Liga;
     public usuario!: User;
+    public puntaje: number =0;
+    public ranking: number =0;
+
 }

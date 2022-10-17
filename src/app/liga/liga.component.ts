@@ -63,7 +63,7 @@ partidos: Array<any>=[];
       this.userService.UserLigasFindByLigaID(this.LigasId).subscribe((data: LigaUser[])=>{
         data.forEach((childSnapshot) => {
           const Data1 = childSnapshot;
-          let usuario ={IdUnion:Data1.id,Estado:Data1.estado,Nombre:Data1.usuario.nombre, Correo:Data1.usuario.email };
+          let usuario ={IdUnion:Data1.id,Estado:Data1.estado,Nombre:Data1.usuario.nombre, Correo:Data1.usuario.email, Puntaje:Data1.puntaje, Ranking: Data1.ranking };
           if(usuario.Estado=='Pendiente'){
             this.usuariosPendientes.push(usuario);
           }else if(usuario.Estado=='Aceptado'){
@@ -79,7 +79,9 @@ partidos: Array<any>=[];
     onValue(starJor1, (snapshot) => {
       snapshot.forEach((childSnapshot) => {
         const Data1 = childSnapshot.val();
-        let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
+        console.log(Data1);
+        
+        let partidos ={ bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
           pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
         this.partidos.push(partidos);
       });

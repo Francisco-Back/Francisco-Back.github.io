@@ -1,0 +1,38 @@
+<body class="body-bk">
+    <div class="row">
+        <hr class="featurette-divider">
+      <div class="col">
+        
+        <div class="container-fluid">
+            <div class="search">
+                <h4>Buscar Liga</h4>
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Buscar">
+              </div>
+              <hr class="featurette-divider">
+
+          <table class="table">
+            <thead>
+            <tr class="table-light">
+              <th scope="col">Nombre Liga</th>
+              <th scope="col">Cantidad Equipos</th>
+              <th scope="col">Fecha Inicio</th>
+              <th scope="col">Fecha Final</th>
+              <th scope="col">Opcion</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr class="table-light" *ngFor="let ligas of ligas | filter:searchText">
+              <td>{{ligas.nombreLiga}}</td>
+              <td>{{ligas.cant_Equipos}}</td>
+              <td>{{ligas.fecha_Inicio}}</td>
+              <td>{{ligas.fecha_Final}}</td>
+              <td><button class="btn button1">Unirme</button></td>
+            </tr>
+            </tbody>
+          </table>
+          <hr class="featurette-divider">
+        </div>
+      </div>
+    
+    </div>
+</body>
