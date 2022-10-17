@@ -39,9 +39,6 @@
         <li class="nav-item"  *ngIf="isLogged" (click)="onLogOut()">
           <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
         </li>
-        <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" [routerLink]="['listado-vaticinios']" [routerLinkActive]="'active'">Listado Vaticinios</a>
-        </li>
       </ul>
     </div>
   </div>
