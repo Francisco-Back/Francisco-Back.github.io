@@ -27,12 +27,12 @@
           <tr class="table-light">
             <td>B1</td>
             <td>Francia</td>
-            <td>2</td>
+            <td>{{marcador1}}</td>
           </tr>
           <tr class="table-light">
             <td>B2</td>
             <td>Australia</td>
-            <td>1</td>
+            <td>{{marcador2}}</td>
           </tr>
           </tbody>
         </table>
@@ -44,28 +44,62 @@
       <div class="container row offset-md-0 ">
         <h1 class="h1 color text-light">Ingreso Marcador</h1>
       </div>
-      <br>
 
-      <form [formGroup]="marcadorForm" (ngSumbit)="onSubmit()">
-        <label for="marcador1">Equipo 1: </label>
-        <input id="marcador1" type="number" formControlName="marcador1">
-        <br>
-        <label for="marcador2">Equipo 2: </label>
-        <input id="marcador2" type="number" formControlName="marcador2">
-        <br>
-        <button type="submit" [disabled]="!marcadorForm.valid">Ingresar</button>
-      </form>
+      <div class="marcadorForm">
+        <form  #f="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="marcador1" class="h4">Equipo 1
+            <input type="number" name="marcador1" id="marcador1" class="form-control"
+                   [(ngModel)]="marcador1" required>
+            </label>
+          </div>
+          <div class="form-group">
+            <label for="marcador2" class="h4">Equipo 2
+            <input type="number" name="marcador2" id="marcador2" class="form-control"
+                   [(ngModel)]="marcador2" required>
+            </label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
+              <i class="fas fa-sign-in-alt"></i>Ingresar</button>
+          </div>
+        </form>>
 
-      
-
-
-
+      </div>
 
 
     </div>
   </div>
-</div>
 
+  <div class="container row offset-md-0 ">
+    <h1 class="h1 color text-light">Listado de Vaticinios</h1>
+  </div>
+
+  <div class="table-wrapper-scroll-y my-custom-scrollbar container-fluid flex w-50 pos ">
+    <table class="table table-bordered table-dark">
+      <thead>
+      <tr>
+        <th scope="col">Rank</th>
+        <th scope="col">Usuario</th>
+        <th scope="col">Equipo 1</th>
+        <th scope="col">Equipo 2</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr class="table-secondary">
+        <td>1</td>
+        <td>Chun</td>
+        <td>3</td>
+        <td>2</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+  <br>
+
+
+</div>
 
 </body>
 </html>

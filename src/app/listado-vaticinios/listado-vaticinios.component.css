@@ -8,11 +8,21 @@
   }
 
 .table{
-
   background-color:#ffffff;
   width: 100%;
   border-collapse: collapse;
-
 }
 
+.form-control {
+	width: 100px;
+	background: #fff;
+	box-shadow: none !important;
+	border-color: #e3e3e3;
+	text-align: center;
+}
+
+.h4{
+  font-size: 25px;
+  color: #FFFFFF;
+}
 
