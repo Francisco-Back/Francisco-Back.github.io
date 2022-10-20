@@ -14,6 +14,7 @@
             <thead>
             <tr class="table-light">
               <th scope="col">Nombre Liga</th>
+              <th scope="col">Administrador</th>
               <th scope="col">Cantidad Equipos</th>
               <th scope="col">Fecha Inicio</th>
               <th scope="col">Fecha Final</th>
@@ -23,10 +24,11 @@
             <tbody>
             <tr class="table-light" *ngFor="let ligas of ligas | filter:searchText">
               <td>{{ligas.nombreLiga}}</td>
+              <td>{{ligas.usuario.email}}</td>
               <td>{{ligas.cant_Equipos}}</td>
               <td>{{ligas.fecha_Inicio}}</td>
               <td>{{ligas.fecha_Final}}</td>
-              <td><button class="btn button1">Unirme</button></td>
+              <td><button class="btn button1" (click)="unirse(ligas.id)">Unirme</button></td>
             </tr>
             </tbody>
           </table>

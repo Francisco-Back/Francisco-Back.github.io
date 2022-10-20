@@ -2,7 +2,10 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import {BehaviorSubject, Subject} from 'rxjs';
 import {debounceTime, distinctUntilChanged, takeUntil} from 'rxjs/operators';
 import { Liga } from '../models/liga.model';
+import { LigaUser } from '../models/ligaUser.model';
+import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
+import{ ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -12,21 +15,47 @@ import { UserService } from '../services/user.service';
 })
 export class AllLigasComponent implements OnInit {
   searchText: any;
-  ligas: Array<any>=[
-    {id:1, nombreLiga: "uno", cant_Equipos:3,fecha_Inicio:"16/10/2022",fecha_Final:"16/10/2022", usuario_ID:""},
-    {id:1, nombreLiga: "dos", cant_Equipos:2,fecha_Inicio:"16/10/2022",fecha_Final:"16/10/2022", usuario_ID:""},
-];
+  userID!: number ;
+  ligas: Array<any>=[];
 
-  constructor(  public userService: UserService) { }
+  constructor( 
+    public userService: UserService,
+    private userIDService: UserIDService,
+    private toastr: ToastrService
+    ) { }
 
   ngOnInit(): void {
+    this.userID = Number(this.userIDService.getIduser());
     this.obtenerLigas();
   }
-
-
+ 
   obtenerLigas(){
     this.userService.allLigas().subscribe((data:Liga[])=>{
-     this.ligas=data;
+     data.forEach((childSnapshot) => {
+      const Data1 = childSnapshot;      
+      if(Data1.usuario.id!=this.userID){
+      let liga = Data1;
+        this.ligas.push(liga);
+      }
     });
+    }, error =>{
+      this.toastr.error('Error de Servidor:'+error.status, 'Fail', {
+      timeOut: 6000,  positionClass: 'toast-top-center',
+        });
+      }
+    );
+  }
+
+  unirse(id:number){
+    this.userService.crearLigaUser(id,this.userID).subscribe((data:LigaUser)=>{
+    this.toastr.success('Te has unido correctamente, espera a que el administrador te acepte', 'OK', {
+      timeOut: 3000
+    });
+    }, error =>{
+      this.toastr.error('Error al invitar Usuario:'+error.status, 'Fail', {
+      timeOut: 6000,  positionClass: 'toast-top-center',
+        });
+      }
+    );
   }
 }

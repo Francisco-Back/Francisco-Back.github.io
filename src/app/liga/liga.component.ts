@@ -8,6 +8,7 @@ import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 import{ ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
+import { Partido } from '../models/partido.model';
 
 
 @Component({
@@ -75,17 +76,11 @@ partidos: Array<any>=[];
   }
 
   obtenerPartidos(){
-    const starJor1 = ref(this.database, 'Partidos/Jornada1/');
-    onValue(starJor1, (snapshot) => {
-      snapshot.forEach((childSnapshot) => {
-        const Data1 = childSnapshot.val();
-        console.log(Data1);
-        
-        let partidos ={ bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
-          pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
-        this.partidos.push(partidos);
-      });
+
+    this.userService.allPartidos().subscribe((data: Partido[])=>{
+      this.partidos = data;
     });
+
   }
 
   //Funciones para Administrar usuarios de la liga

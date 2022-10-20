@@ -6,7 +6,7 @@ export class Liga {
     public fecha_Inicio: String | undefined;
     public fecha_Final: String | undefined;
     public nombreLiga: String | undefined;
-    public usuario_ID!: User;
+    public usuario!: User;
 
 
 }
