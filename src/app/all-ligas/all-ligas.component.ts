@@ -17,7 +17,7 @@ export class AllLigasComponent implements OnInit {
   searchText: any;
   userID!: number ;
   ligas: Array<any>=[];
-
+  ligaUser:Array<any>=[];
   constructor( 
     public userService: UserService,
     private userIDService: UserIDService,
@@ -30,12 +30,17 @@ export class AllLigasComponent implements OnInit {
   }
  
   obtenerLigas(){
+    this.obtenerUserLigas();
     this.userService.allLigas().subscribe((data:Liga[])=>{
      data.forEach((childSnapshot) => {
-      const Data1 = childSnapshot;      
+      const Data1 = childSnapshot;       
       if(Data1.usuario.id!=this.userID){
-      let liga = Data1;
-        this.ligas.push(liga);
+        this.ligaUser.forEach((element)=>{
+          if(element!=Data1.id){
+          let liga = Data1;
+          this.ligas.push(liga);
+        }
+        })
       }
     });
     }, error =>{
@@ -57,5 +62,15 @@ export class AllLigasComponent implements OnInit {
         });
       }
     );
+  }
+
+  obtenerUserLigas(){
+    this.userService.UserLigasFindByUser(this.userID).subscribe((data:LigaUser[])=>{
+      data.forEach((childSnapshot) => {
+        const Data1 = childSnapshot;       
+        let LigasUser=Data1.ligasEntity.id;
+        this.ligaUser.push(LigasUser);        
+      });
+    });
   }
 }

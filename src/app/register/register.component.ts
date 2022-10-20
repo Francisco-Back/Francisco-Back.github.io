@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup,Validators} from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { User } from '../models/user.model';
 import { ImagenService } from '../services/imagen.service';
@@ -17,16 +17,19 @@ export class RegisterComponent implements OnInit {
     private userService: UserService,
     private router: Router,
     private imagenService: ImagenService,
-    private toastr: ToastrService
+    private toastr: ToastrService,
+    private route: ActivatedRoute,
   ) { }
   user!: FormGroup;
+  ligaID!: number;
 
   ngOnInit(): void {
+    this.ligaID = this.route.snapshot.params['id'];
     this.user = new FormGroup({
       nombre: new FormControl('',Validators.required),
-      correo: new FormControl('', Validators.required),
+      email: new FormControl('', Validators.required),
       password: new FormControl('', Validators.required),
-      avatar: new FormControl('', Validators.required),
+      avatar: new FormControl('')
     });
   }
 
@@ -46,7 +49,12 @@ export class RegisterComponent implements OnInit {
       this.toastr.success('Registro Exitoso ' + usuario.nombre, 'OK', {
         timeOut: 6000,  positionClass: 'toast-top-center',
       });
-      this.router.navigateByUrl('/login');
+      if(this.ligaID != null){
+        this.router.navigateByUrl('/login/'+this.ligaID);
+      }else{
+        this.router.navigateByUrl('/login');
+
+      }
     }, 
     error =>{
       console.log(error);
