@@ -16,7 +16,7 @@ export class ListadoVaticiniosComponent implements OnInit {
   ligas: Liga = new Liga();
   userID!: number | null;
   LigasId = 0;
-  idpartido = "";
+  idpartido = 0;
   admin = false;
   aux!: number | null;
   partidos: Partido= new Partido();
