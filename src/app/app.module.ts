@@ -28,6 +28,7 @@ import { interceptorProvider } from './interceptors/umg-interceptor.service';
 import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticinios.component';
 import { AllLigasComponent } from './all-ligas/all-ligas.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { VaticinioComponent } from './vaticinio/vaticinio.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FormLigaComponent,
     ListadoVaticiniosComponent,
     AllLigasComponent,
+    VaticinioComponent,
   ],
   imports: [
     BrowserModule,

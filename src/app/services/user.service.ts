@@ -146,8 +146,8 @@ export class UserService {
 
       //Get partido por id
 
-      partidoFindByID(id: number | null): Observable<Partido[]> {
-        return this.httpClient.get<Partido[]>(this.apiURL + '/api/Partidos/Search/' + id)
+      partidoFindByID(id: String | null): Observable<Partido> {
+        return this.httpClient.get<Partido>(this.apiURL + '/api/Partidos/Search/' + id)
         .pipe(
           catchError(this.errorHandler)
         )
