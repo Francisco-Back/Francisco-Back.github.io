@@ -42,7 +42,7 @@ export class PrincipalComponent implements OnInit {
 
 
   ngOnInit(): void {
-    
+    window.location.reload();
     this.userEmail= this.tokenService.getUserName();
     //this.obtenerUser();
     this.obtenerPartidos();
