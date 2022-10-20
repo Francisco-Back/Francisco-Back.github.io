@@ -54,7 +54,7 @@ export class LoginComponent implements OnInit {
           timeOut: 3000
         });
 
-        this.router.navigate(['/principal']);
+        this.router.navigateByUrl('/principal');
       
       }, error =>{
         this.isLogged = false;
