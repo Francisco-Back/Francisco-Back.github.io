@@ -42,7 +42,7 @@ partidos: Partido= new Partido();
     console.warn(this.equipo1);
 }
 
-obtenerPartidos(id:String){
+obtenerPartidos(id:number){
   this.userService.partidoFindByID(id).subscribe((data:Partido)=>{
   this.partidos=data;
   console.log(this.partidos);
