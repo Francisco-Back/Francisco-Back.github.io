@@ -28,7 +28,7 @@ export class EncabezadoComponent implements OnInit {
   onLogOut(): void {
     this.tokenService.logOut();
     this.router.navigateByUrl('/');
-    window.location.replace('/');
+    window.location.reload();
 
   }
 

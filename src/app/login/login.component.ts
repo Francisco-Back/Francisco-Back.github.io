@@ -55,7 +55,7 @@ export class LoginComponent implements OnInit {
         });
         
         this.router.navigateByUrl('/principal');
-        window.location.replace('/principal');
+        window.location.reload;
 
       }, error =>{
         this.isLogged = false;
