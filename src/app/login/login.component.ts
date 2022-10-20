@@ -6,7 +6,8 @@ import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../services/token.service';
 import{ ToastrService } from 'ngx-toastr';
 import { catchError, of } from 'rxjs';
-import { EncabezadoComponent } from '../encabezado/encabezado.component';
+import { Location, LocationStrategy } from '@angular/common';
+
 
 @Component({
   selector: 'app-login',
@@ -28,6 +29,7 @@ export class LoginComponent implements OnInit {
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
+    private locationStrategy: LocationStrategy,
   ) {
 
 
@@ -53,12 +55,12 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
           timeOut: 3000
         });
-        console.log(window.location.origin);
-        console.log(window.location.host);
-        console.log(window.location.href);
-        console.log(window.location.pathname);
-        console.log(window.location.hostname);
-        this.router.navigate(['/principal']);
+        //console.log(window.location.origin);
+        //console.log(window.location.host);
+        //console.log(window.location.href);
+        console.log('pathname ', window.location.pathname);
+        console.log('baseref ',this.locationStrategy.getBaseHref());
+        window.location.replace(this.locationStrategy.getBaseHref()+'principal');
       }, error =>{
         this.isLogged = false;
         this.toastr.error('Login Incorrecto', 'Fail', {
