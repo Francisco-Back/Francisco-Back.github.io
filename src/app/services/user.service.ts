@@ -7,6 +7,7 @@ import { UserIDS } from '../models/user-id';
 import { Liga } from '../models/liga.model';
 import { LigaUser } from '../models/ligaUser.model';
 import { Partido } from '../models/partido.model';
+import { Vaticinio } from '../models/vaticinio.model';
 
 @Injectable({
   providedIn: 'root'
@@ -161,6 +162,26 @@ export class UserService {
           catchError(this.errorHandler)
         )
       }
+
+//Servicio Vaticinios
+
+//Encuentra Vaticinio por ID liga y ID partido
+findVaticinioByLigaIDPartidoID(idLiga: number | null,idPartido: number | null): Observable<Vaticinio[]> {
+  return this.httpClient.get<Vaticinio[]>(this.apiURL + '/api/Vaticinio/ListarVat/' + idLiga + '/'+idPartido)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+
+//Crear Vaticinio
+crearVaticinio(vaticinio:Vaticinio): Observable<Vaticinio> {
+  return this.httpClient.post<Vaticinio>(this.apiURL + '/api/Vaticinio/Send',JSON.stringify(vaticinio), this.httpOptions)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+
+
 
 /*  find(id: number): Observable<Client> {
     return this.httpClient.get<Client>(this.apiURL + '/client/' + id)

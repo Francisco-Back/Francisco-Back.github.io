@@ -6,6 +6,7 @@ import { ToastrService } from 'ngx-toastr';
 import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
+import { Vaticinio } from '../models/vaticinio.model';
 
 @Component({
   selector: 'app-listado-vaticinios',
@@ -22,7 +23,7 @@ export class ListadoVaticiniosComponent implements OnInit {
   partidos: Partido= new Partido();
   marcador1!: number;
   marcador2!: number;
-
+  vaticinio: Array<any>=[];
 
   constructor(
       public userService: UserService,
@@ -36,6 +37,7 @@ export class ListadoVaticiniosComponent implements OnInit {
       this.userID = Number(this.userIDService.getIduser());
       this.obtenerLiga();
       this.obtenerPartidos(this.idpartido);
+      this.ObtenerVaticinios();
   }
 
   onSubmit(){
@@ -73,6 +75,18 @@ obtenerLiga(){
       this.ligas = data;
       let userliga = this.ligas.id;
   });
+  }
+
+  ObtenerVaticinios(){
+    this.userService.findVaticinioByLigaIDPartidoID(15,1).subscribe((data:Vaticinio[])=>{
+      console.log(data);
+      data.forEach((childSnapshot) => {
+        const Data1 = childSnapshot;
+        let vaticinio ={puntaje:Data1.punteo,nombreUsuario: Data1.usuario.nombre, pais1: Data1.vat1, pais2:Data1.vat2};
+          this.vaticinio.push(vaticinio);
+      });
+      
+    });
   }
 
 
