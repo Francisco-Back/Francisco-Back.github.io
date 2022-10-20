@@ -29,7 +29,7 @@ const routes: Routes = [
   { path: 'liga/:id', component: LigaComponent},
   { path: 'confirmacionliga', component: ConfirmacionligaComponent},
   { path: 'form-liga', component: FormLigaComponent},
-  { path: 'listado-vaticinios', component: ListadoVaticiniosComponent },
+  { path: 'listado-vaticinios/:idpartido/:idliga', component: ListadoVaticiniosComponent },
   { path: 'ligas', component: AllLigasComponent},
   { path: 'vaticinio/:idpartido/:idliga', component: VaticinioComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }

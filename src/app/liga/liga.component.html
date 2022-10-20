@@ -59,7 +59,7 @@
     <h4> Usuarios Pendientes</h4>
     <p>Estos usuarios estan pendientes de ser aceptados en la liga</p>
   </div>
-  
+
   <div class="table-wrapper-scroll-y2 my-custom-scrollbar container2-fluid flex " *ngIf="admin">
     <table class="table table-bordered table-dark">
       <thead>
@@ -86,7 +86,7 @@
 
 
 <div class="row">
-  <div class="col"> 
+  <div class="col">
     <div class="container-fluid">
       <h4>Participantes y Ranking</h4>
     </div>
@@ -136,7 +136,7 @@
                    <td><img class="img-fluid"  width="100" src={{Jr1.bandera1}}/></td>
                    <td>{{Jr1.pais1}}</td>
                    <td>{{Jr1.fecha}}</td>
-                   <td><button class="btn button1 btn-sm">Ver Informacion</button></td>
+                   <td><button class="btn button1 btn-sm" (click)="partidoListadoVaticinio(Jr1.id)">Ver Informacion</button></td>
                </tr>
            </tbody>
            <tbody>
@@ -144,7 +144,7 @@
                  <td><img class="img-fluid"  width="100" src={{Jr1.bandera2}}/></td>
                  <td>{{Jr1.pais2}}</td>
                  <td>{{Jr1.horario}}</td>
-                 <td><button  class="btn button1 btn-sm" (click)="partidoVaticinio(Jr1.columna)" >Realizar Vaticinio</button></td>
+                 <td><button  class="btn button1 btn-sm" (click)="partidoVaticinio(Jr1.id)" >Realizar Vaticinio</button></td>
              </tr>
          </tbody>
        </table>

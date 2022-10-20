@@ -146,7 +146,7 @@ export class UserService {
 
       //Get partido por id
 
-      partidoFindByID(id: String | null): Observable<Partido> {
+      partidoFindByID(id: number | null): Observable<Partido> {
         return this.httpClient.get<Partido>(this.apiURL + '/api/Partidos/Search/' + id)
         .pipe(
           catchError(this.errorHandler)
@@ -154,7 +154,7 @@ export class UserService {
       }
 
       //Update Marcaje Partido
-      
+
       updateMarcajePartido(id: number, marcaje1:number,marcaje2:number): Observable<Partido> {
         return this.httpClient.patch<Partido>(this.apiURL + '/api/Partidos/Update/'+marcaje1 +'/'+marcaje2,+'/'+id , this.httpOptions)
         .pipe(
