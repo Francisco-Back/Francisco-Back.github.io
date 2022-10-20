@@ -53,8 +53,9 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
           timeOut: 3000
         });
-        
-        this.router.navigate(['/principal']);
+        console.log(window.location.hash);
+        this.router.navigate([window.location.hash+'/principal']);
+        window.location.replace(window.location.hash+'/principal');
 
       }, error =>{
         this.isLogged = false;
