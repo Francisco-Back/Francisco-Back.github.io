@@ -142,7 +142,7 @@ error =>{
 //Redirigir partido a vaticinios
 
 partidoVaticinio(id:number){
-  this.router.navigateByUrl('vaticinio/'+id);
+  this.router.navigateByUrl('vaticinio/'+id+'/'+this.LigasId);
 }
 
 }

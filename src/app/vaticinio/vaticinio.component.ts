@@ -16,6 +16,7 @@ export class VaticinioComponent implements OnInit {
 ligas: Liga = new Liga();
 userID!: number | null;
 LigasId = 0;
+idpartido = "";
 admin = false;
 aux!: number | null;
 partidos: Partido= new Partido();
@@ -30,10 +31,11 @@ partidos: Partido= new Partido();
     private toastr: ToastrService ) { }
 
   ngOnInit(): void {
-    this.LigasId = this.route.snapshot.params['id'];
+    this.idpartido = this.route.snapshot.params['idpartido'];
+    this.LigasId = this.route.snapshot.params['idliga'];
     this.userID = Number(this.userIDService.getIduser());
     this.obtenerLiga();
-    this.obtenerPartidos('ID1');
+    this.obtenerPartidos(this.idpartido);
 
   }
   onSubmit(){

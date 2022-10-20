@@ -77,23 +77,23 @@
         </div>
       
       </div>
-        <div class="marcadorForm">
+        <div class="marcadorForm text-light">
           <form  #f="ngForm" (ngSubmit)="onSubmit()">
             <div class="form-group">
-              <label for="marcador1" class="h4">Equipo 1
+              <label for="marcador1" class="h4">{{partidos.pais1}}
                 <input type="number" name="marcador1" id="marcador1" class="form-control"
                        [(ngModel)]="equipo1" required>
               </label>
             </div>
             <div class="form-group">
-              <label for="marcador2" class="h4">Equipo 2
+              <label for="marcador2" class="h4">{{partidos.pais2}}
                 <input type="number" name="marcador2" id="marcador2" class="form-control"
                        [(ngModel)]="equipo2" required>
               </label>
             </div>
             <div class="form-group">
               <button class="btn btn-outline-success btn-block" [disabled]="!f.valid">
-                <i class="fas fa-sign-in-alt"></i>Ingresar</button>
+                <i class="fas fa-sign-in-alt"></i>Realizar Vaticinio</button>
             </div>
 
           </form>>
