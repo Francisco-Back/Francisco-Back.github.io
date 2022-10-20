@@ -54,8 +54,8 @@ export class LoginComponent implements OnInit {
           timeOut: 3000
         });
 
-        //this.router.navigate(['/principal']);
-       window.location.replace('/principal');
+        this.router.navigate(['/principal']);
+      
       }, error =>{
         this.isLogged = false;
         this.toastr.error('Login Incorrecto', 'Fail', {
