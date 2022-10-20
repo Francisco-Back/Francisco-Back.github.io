@@ -14,6 +14,7 @@ import { SedesComponent } from './sedes/sedes.component';
 import { FormLigaComponent } from './form-liga/form-liga.component';
 import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticinios.component';
 import { AllLigasComponent } from './all-ligas/all-ligas.component';
+import { VaticinioComponent } from './vaticinio/vaticinio.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent ,pathMatch:'full'},
@@ -30,6 +31,7 @@ const routes: Routes = [
   { path: 'form-liga', component: FormLigaComponent},
   { path: 'listado-vaticinios', component: ListadoVaticiniosComponent },
   { path: 'ligas', component: AllLigasComponent},
+  { path: 'vaticinio/:idpartido', component: VaticinioComponent },
   { path: '**', redirectTo: '/', pathMatch: 'full' }
 ];
 

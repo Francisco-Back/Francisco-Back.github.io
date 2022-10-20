@@ -31,6 +31,7 @@ partidos: Array<any>=[];
     public userService: UserService,
     private route: ActivatedRoute,
     private userIDService: UserIDService,
+    private router: Router,
     private toastr: ToastrService) { }
 
   ngOnInit(): void {
@@ -136,4 +137,12 @@ error =>{
 }
   );
 }
+
+
+//Redirigir partido a vaticinios
+
+partidoVaticinio(id:number){
+  this.router.navigateByUrl('vaticinio/'+id);
+}
+
 }
