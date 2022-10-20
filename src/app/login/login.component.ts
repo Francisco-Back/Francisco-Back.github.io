@@ -53,10 +53,10 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
           timeOut: 3000
         });
-        console.log(window.location.hash);
-        this.router.navigate([window.location.hash+'/principal']);
-        window.location.replace(window.location.hash+'/principal');
-
+        console.log(window.location.origin);
+        console.log(window.location.host);
+        console.log(window.location.href);
+        this.router.navigate(['/principal']);
       }, error =>{
         this.isLogged = false;
         this.toastr.error('Login Incorrecto', 'Fail', {
