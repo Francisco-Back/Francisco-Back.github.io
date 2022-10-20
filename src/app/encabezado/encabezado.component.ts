@@ -18,9 +18,8 @@ export class EncabezadoComponent implements OnInit {
   ngOnInit() {
    // console.log(this.tokenService.getToken());
     if (this.tokenService.getToken()) {
+
       this.isLogged = true;
-      console.log(this.isLogged);
-      
     } else {
       this.isLogged = false;
     }
@@ -29,6 +28,7 @@ export class EncabezadoComponent implements OnInit {
   onLogOut(): void {
     this.tokenService.logOut();
     this.router.navigateByUrl('/');
+    window.location.replace('/');
 
   }
 

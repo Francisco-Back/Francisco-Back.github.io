@@ -38,18 +38,16 @@ export class PrincipalComponent implements OnInit {
     private tokenService: TokenService,
     private userIDService: UserIDService,
     private toastr: ToastrService ) { }
-
+  
 
 
   ngOnInit(): void {
+    
     this.userEmail= this.tokenService.getUserName();
     //this.obtenerUser();
     this.obtenerPartidos();
     this.SetUserID();
    //
-
-
-
   }
 
   SetUserID(): void {

@@ -6,6 +6,7 @@ import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../services/token.service';
 import{ ToastrService } from 'ngx-toastr';
 import { catchError, of } from 'rxjs';
+import { EncabezadoComponent } from '../encabezado/encabezado.component';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
-    private toastr: ToastrService
+    private toastr: ToastrService,
   ) {
 
 
@@ -45,7 +46,6 @@ export class LoginComponent implements OnInit {
     this.authService.login(this.loginUsuario).subscribe(
       data => {
         this.isLogged = true;
-
         this.tokenService.setToken(data.token);
         this.tokenService.setUserName(data.email);
         this.tokenService.setAuthorities(data.authorities);
@@ -53,9 +53,10 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
           timeOut: 3000
         });
-
+        
         this.router.navigateByUrl('/principal');
-      
+        window.location.replace('/principal');
+
       }, error =>{
         this.isLogged = false;
         this.toastr.error('Login Incorrecto', 'Fail', {
