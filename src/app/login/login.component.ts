@@ -56,6 +56,8 @@ export class LoginComponent implements OnInit {
         console.log(window.location.origin);
         console.log(window.location.host);
         console.log(window.location.href);
+        console.log(window.location.pathname);
+        console.log(window.location.hostname);
         this.router.navigate(['/principal']);
       }, error =>{
         this.isLogged = false;
