@@ -42,9 +42,7 @@ export class ListadoVaticiniosComponent implements OnInit {
       this.ObtenerVaticinios(this.LigasId,this.idpartido);
   }
 
-  onSubmit(){
-      console.warn(this.marcador1);
-  }
+
 
 
 obtenerPartidos(id:number){
@@ -79,15 +77,15 @@ obtenerLiga(){
   });
   }
 
-  ObtenerVaticinios(idLiga:number,idPartido: number){
-    this.userService.findVaticinioByLigaIDPartidoID(idLiga,idPartido).subscribe((data:Vaticinio[])=>{
+  ObtenerVaticinios(LigasId:number,idpartido: number){
+    this.userService.findVaticinioByLigaIDPartidoID(LigasId,idpartido).subscribe((data:Vaticinio[])=>{
       console.log(data);
       data.forEach((childSnapshot) => {
         const Data1 = childSnapshot;
         let vaticinio ={puntaje:Data1.punteo,nombreUsuario: Data1.usuario.nombre, pais1: Data1.vat1, pais2:Data1.vat2};
           this.vaticinio.push(vaticinio);
       });
-
+      console.log(this.vaticinio);
     });
   }
 
