@@ -7,6 +7,7 @@ import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 import { ActivatedRoute } from '@angular/router';
 import { Vaticinio } from '../models/vaticinio.model';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-listado-vaticinios',
@@ -24,6 +25,7 @@ export class ListadoVaticiniosComponent implements OnInit {
   marcador1!: number;
   marcador2!: number;
   vaticinio: Array<any>=[];
+  listadovaticinio!: FormGroup;
 
   constructor(
       public userService: UserService,
@@ -37,7 +39,7 @@ export class ListadoVaticiniosComponent implements OnInit {
       this.userID = Number(this.userIDService.getIduser());
       this.obtenerLiga();
       this.obtenerPartidos(this.idpartido);
-      this.ObtenerVaticinios();
+      this.ObtenerVaticinios(this.LigasId,this.idpartido);
   }
 
   onSubmit(){
@@ -77,18 +79,37 @@ obtenerLiga(){
   });
   }
 
-  ObtenerVaticinios(){
-    this.userService.findVaticinioByLigaIDPartidoID(15,1).subscribe((data:Vaticinio[])=>{
+  ObtenerVaticinios(idLiga:number,idPartido: number){
+    this.userService.findVaticinioByLigaIDPartidoID(idLiga,idPartido).subscribe((data:Vaticinio[])=>{
       console.log(data);
       data.forEach((childSnapshot) => {
         const Data1 = childSnapshot;
         let vaticinio ={puntaje:Data1.punteo,nombreUsuario: Data1.usuario.nombre, pais1: Data1.vat1, pais2:Data1.vat2};
           this.vaticinio.push(vaticinio);
       });
-      
+
     });
   }
 
+  ObtenerFecha(){
+    let date: Date = new Date();
+    console.log("Date = " + date);
+  }
 
+  //Actualizar Marcaje
+  Marcaje(marcaje1:String,marcaje2:String){
+      this.userService.updateMarcajePartido(this.idpartido,Number(marcaje1),Number(marcaje2),this.LigasId).subscribe((data:Partido)=>{
+        this.toastr.success('Marcador Actualizado', 'OK', {
+          timeOut: 3000
+        });
+
+    },
+    error =>{
+      this.toastr.error('Error al actualizar Marcador:'+error.status, 'Fail', {
+        timeOut: 6000,  positionClass: 'toast-top-center',
+      });
+    }
+      );
+    }
 
 }

@@ -156,12 +156,12 @@ export class UserService {
 
       //Update Marcaje Partido
 
-      updateMarcajePartido(id: number, marcaje1:number,marcaje2:number): Observable<Partido> {
-        return this.httpClient.patch<Partido>(this.apiURL + '/api/Partidos/Update/'+marcaje1 +'/'+marcaje2,+'/'+id , this.httpOptions)
-        .pipe(
-          catchError(this.errorHandler)
-        )
-      }
+      updateMarcajePartido(id: number, marcaje1:number,marcaje2:number,ligaId:number): Observable<Partido> {
+              return this.httpClient.patch<Partido>(this.apiURL + '/api/Partidos/Update/'+marcaje1 +'/'+marcaje2+'/'+id +'/'+ligaId, this.httpOptions)
+              .pipe(
+                catchError(this.errorHandler)
+              )
+            }
 
 //Servicio Vaticinios
 

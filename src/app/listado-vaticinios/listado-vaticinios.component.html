@@ -40,33 +40,25 @@
       </div>
     </div>
 
-    <div class="col">
+    <div class="col" *ngIf="admin">
         <div class="container row offset-md-0 ">
           <h1 class="h1 color text-light">Ingreso Marcador</h1>
         </div>
 
         <div class="marcadorForm">
-          <form  #f="ngForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="marcador1" class="h4">{{partidos.pais1}}
-                <input type="number" name="marcador1" id="marcador1" class="form-control"
-                       [(ngModel)]="marcador1" required>
-              </label>
-            </div>
-            <div class="form-group">
-              <label for="marcador2" class="h4">{{partidos.pais2}}
-                <input type="number" name="marcador2" id="marcador2" class="form-control"
-                       [(ngModel)]="marcador2" required>
-              </label>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-success btn-block " [disabled]="!f.valid">
-                <i class="fas fa-sign-in-alt"></i>Ingresar</button>
-            </div>
 
-          </form>
+              <label for="marcador1" class="h4">{{partidos.pais1}}
+                <input class = "form-group" type="number" id="marcador1" name="marcador1" #marcador1>
+              </label>
+
+              <label for="marcador2" class="h4">{{partidos.pais2}}
+                <input class = "form-group" type="number" id="marcador2" name="marcador2" #marcador2>
+              </label>
+              <button class="btn btn-success btn-block" (click) = "Marcaje(marcador1.value,marcador2.value)" >
+                <i class="fas fa-sign-in-alt"></i>Ingresar</button>
 
         </div>
+
 
       </div>
     </div>
@@ -79,18 +71,18 @@
       <table class="table table-bordered table-dark">
         <thead>
         <tr>
-          <th scope="col">Rank</th>
+          <th scope="col">Punteo</th>
           <th scope="col">Usuario</th>
           <th scope="col">{{partidos.pais1}}</th>
           <th scope="col">{{partidos.pais2}}</th>
         </tr>
         </thead>
         <tbody>
-        <tr class="table-secondary">
-          <td>1</td>
-          <td>Chun</td>
-          <td>3</td>
-          <td>2</td>
+        <tr class="table-secondary"  *ngFor="let vat of vaticinio">
+          <td>{{vat.puntaje}}</td>
+          <td>{{vat.nombreUsuario}}</td>
+          <td>{{vat.pais1}}</td>
+          <td>{{vat.pais2}}</td>
         </tr>
         </tbody>
       </table>
