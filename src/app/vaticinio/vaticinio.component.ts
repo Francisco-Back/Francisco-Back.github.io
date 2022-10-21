@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Database, onValue, ref } from '@angular/fire/database';
-import { ActivatedRoute } from '@angular/router';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { Liga } from '../models/liga.model';
 import { Partido } from '../models/partido.model';
+import { Vaticinio } from '../models/vaticinio.model';
 import { UserIDService } from '../services/user-id.service';
 import { UserService } from '../services/user.service';
 
@@ -17,6 +19,7 @@ ligas: Liga = new Liga();
 userID!: number | null;
 LigasId = 0;
 idpartido = 0;
+vaticinio!: FormGroup;
 admin = false;
 aux!: number | null;
 partidos: Partido= new Partido();
@@ -27,6 +30,7 @@ partidos: Partido= new Partido();
     public database:Database,
     public userService: UserService,
     private route: ActivatedRoute,
+    private router: Router,
     private userIDService: UserIDService,
     private toastr: ToastrService ) { }
 
@@ -36,11 +40,58 @@ partidos: Partido= new Partido();
     this.userID = Number(this.userIDService.getIduser());
     this.obtenerLiga();
     this.obtenerPartidos(this.idpartido);
+    this.vaticinio = new FormGroup({
+      createDate: new FormControl(''),
+      idliga: new FormControl(''),
+      idpartido: new FormControl(''),
+      iduser: new FormControl(''),
+      nombre: new FormControl(''),
+      partido: new FormControl(''),
+      punteo: new FormControl(''),
+      vat1: new FormControl('',Validators.required),
+      vat2: new FormControl('',Validators.required),
+    });
+
 
   }
-  onSubmit(){
-    console.warn(this.equipo1);
-}
+  
+  get f(){
+    return this.vaticinio.controls;
+  }
+
+
+  onSubmit() {
+    if (!this.vaticinio.valid) {
+      return;
+    }
+    let start = Date.now();
+   
+    let vaticinio: Vaticinio = this.vaticinio.value;
+    this.vaticinio.patchValue({
+      createDate: start,
+      idliga: this.LigasId,
+      idpartido: this.idpartido,
+      iduser: this.userID,
+      nombre: "prueba",
+      partido: "prueba 2",
+      punteo: 0
+    });
+    console.log(this.vaticinio);
+    this.userService.crearVaticinio(vaticinio).subscribe((res:any) => {
+      this.toastr.success('Vaticinio Enviado', 'Vaticinio', {
+        timeOut: 3000
+      });
+    //this.router.navigateByUrl('/principal');
+  },
+
+  err => {
+    this.toastr.error("No se pudo realizar el vaticinio", 'Fail', {
+      timeOut: 3000,  positionClass: 'toast-top-center',
+    });
+    // console.log(err.error.message);
+  })
+  }
+
 
 obtenerPartidos(id:number){
   this.userService.partidoFindByID(id).subscribe((data:Partido)=>{
@@ -72,4 +123,7 @@ obtenerLiga(){
       let userliga = this.ligas.id;
   });
   }
+
+
+
 }
