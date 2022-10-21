@@ -14,7 +14,7 @@
       <div class="container row offset-md-0 ">
         <h1 class="h1 color text-light">Partido</h1>
       </div>
-      <div class="container1-fluid">
+      <div class="container-fluid">
         <table class="table table-bordered table-striped mb-0">
           <thead>
           <tr class="table-light">
@@ -41,27 +41,24 @@
     </div>
 
     <div class="col" *ngIf="admin">
-        <div class="container row offset-md-0 ">
+      <div class="container row offset-md-0">
           <h1 class="h1 color text-light">Ingreso Marcador</h1>
-        </div>
+      </div>
 
-        <div class="marcadorForm">
-
+        <div class="marcadorForm container row offset-md-4">
               <label for="marcador1" class="h4">{{partidos.pais1}}
-                <input class = "form-group" type="number" id="marcador1" name="marcador1" #marcador1>
+                <input class="marcadorForm" type="number" id="marcador1" name="marcador1" #marcador1>
               </label>
-
               <label for="marcador2" class="h4">{{partidos.pais2}}
-                <input class = "form-group" type="number" id="marcador2" name="marcador2" #marcador2>
+                <input class="marcadorForm" type="number" id="marcador2" name="marcador2" #marcador2>
               </label>
               <button class="btn btn-success btn-block" (click) = "Marcaje(marcador1.value,marcador2.value)" >
                 <i class="fas fa-sign-in-alt"></i>Ingresar</button>
-
         </div>
 
 
-      </div>
     </div>
+  </div>
 
     <div class="container row offset-md-0 ">
       <h1 class="h1 color text-light">Listado de Vaticinios</h1>
