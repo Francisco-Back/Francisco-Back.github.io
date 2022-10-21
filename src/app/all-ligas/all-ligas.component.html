@@ -6,13 +6,14 @@
         <div class="container-fluid">
             <div class="search">
                 <h4>Buscar Liga</h4>
-                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Buscar">
+                <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="on" placeholder="Buscar">
               </div>
               <hr class="featurette-divider">
-
+<div class="table-responsive" >
           <table class="table">
             <thead>
             <tr class="table-light">
+              <th scope="col">Id Liga</th>
               <th scope="col">Nombre Liga</th>
               <th scope="col">Administrador</th>
               <th scope="col">Cantidad Equipos</th>
@@ -23,6 +24,7 @@
             </thead>
             <tbody>
             <tr class="table-light" *ngFor="let ligas of ligas | filter:searchText">
+              <td>{{ligas.id}}</td>
               <td>{{ligas.nombreLiga}}</td>
               <td>{{ligas.usuario.email}}</td>
               <td>{{ligas.cant_Equipos}}</td>
@@ -32,6 +34,7 @@
             </tr>
             </tbody>
           </table>
+        </div>
           <hr class="featurette-divider">
         </div>
       </div>

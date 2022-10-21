@@ -22,4 +22,4 @@ amqp.connect('amqps://b-4a2daddb-b41f-4300-8a32-cd29dcb45bca.mq.us-east-2.amazon
 
 })*/
 
-console.log("funciona");
+//console.log("funciona");

@@ -1,7 +1,7 @@
 
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { LoginUsuario } from '../models/login-usuario';
 import { TokenService } from '../services/token.service';
 import{ ToastrService } from 'ngx-toastr';
@@ -23,19 +23,22 @@ export class LoginComponent implements OnInit {
   password!: string;
   roles: string[] = [];
   errMsj!: string;
-
+  ligaID!: number;
   constructor(
     private tokenService: TokenService,
     private authService: AuthService,
     private router: Router,
     private toastr: ToastrService,
     private locationStrategy: LocationStrategy,
+    private route: ActivatedRoute,
+
   ) {
 
 
    }
 
   ngOnInit() {
+    this.ligaID = this.route.snapshot.params['id'];
     if (this.tokenService.getToken()) {
       this.isLogged = true;
       this.isLoginFail = false;
@@ -55,12 +58,12 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bienvenido ' + data.email, 'OK', {
           timeOut: 3000
         });
-        //console.log(window.location.origin);
-        //console.log(window.location.host);
-        //console.log(window.location.href);
-        console.log('pathname ', window.location.pathname);
-        console.log('baseref ',this.locationStrategy.getBaseHref());
-        window.location.replace(this.locationStrategy.getBaseHref()+'principal');
+        if(this.ligaID!=null){
+          window.location.replace(this.locationStrategy.getBaseHref()+'confirmacionliga/'+this.ligaID);
+        }else{
+          window.location.replace(this.locationStrategy.getBaseHref()+'principal');
+
+        }
       }, error =>{
         this.isLogged = false;
         this.toastr.error('Login Incorrecto', 'Fail', {
@@ -70,6 +73,8 @@ export class LoginComponent implements OnInit {
       
     );
   }
+
+  
 
 }
 

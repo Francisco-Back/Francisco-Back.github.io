@@ -17,7 +17,7 @@ export class AllLigasComponent implements OnInit {
   searchText: any;
   userID!: number ;
   ligas: Array<any>=[];
-
+  ligaUser:Array<Liga>=[];
   constructor( 
     public userService: UserService,
     private userIDService: UserIDService,
@@ -30,14 +30,16 @@ export class AllLigasComponent implements OnInit {
   }
  
   obtenerLigas(){
+    this.obtenerUserLigas();
     this.userService.allLigas().subscribe((data:Liga[])=>{
      data.forEach((childSnapshot) => {
-      const Data1 = childSnapshot;      
+      const Data1 = childSnapshot;       
       if(Data1.usuario.id!=this.userID){
-      let liga = Data1;
-        this.ligas.push(liga);
-      }
+          let liga = Data1;
+          this.ligas.push(liga);
+        }
     });
+    
     }, error =>{
       this.toastr.error('Error de Servidor:'+error.status, 'Fail', {
       timeOut: 6000,  positionClass: 'toast-top-center',
@@ -57,5 +59,16 @@ export class AllLigasComponent implements OnInit {
         });
       }
     );
+  }
+
+  obtenerUserLigas(){
+    this.userService.UserLigasFindByUser(this.userID).subscribe((data:LigaUser[])=>{
+      data.forEach((childSnapshot) => {
+        const Data1 = childSnapshot;       
+        let LigasUser=Data1.ligasEntity;
+        this.ligaUser.push(LigasUser);
+        console.log(this.ligaUser);
+      });
+    });
   }
 }

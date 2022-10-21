@@ -138,8 +138,10 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
       this.userService.UserLigasFindByUser(this.userID).subscribe((data: LigaUser[])=>{
         data.forEach((childSnapshot) => {
           const Data1 = childSnapshot;
-          let liga ={LigaId:Data1.ligasEntity.id, LigaNombre:Data1.ligasEntity.nombreLiga };
+          let liga ={LigaId:Data1.ligasEntity.id, LigaNombre:Data1.ligasEntity.nombreLiga,estado:Data1.estado };
+          if(liga.estado=='Aceptado'){
           this.ligaUser.push(liga);
+        }
         });
         console.log(this.ligaUser);
     });
