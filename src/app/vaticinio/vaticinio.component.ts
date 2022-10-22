@@ -66,7 +66,6 @@ partidos: Partido= new Partido();
     }
     let start = Date.now();
    
-    let vaticinio: Vaticinio = this.vaticinio.value;
     this.vaticinio.patchValue({
       createDate: start,
       idliga: this.LigasId,
@@ -76,19 +75,21 @@ partidos: Partido= new Partido();
       partido: "prueba 2",
       punteo: 0
     });
-    console.log(this.vaticinio);
+    let vaticinio: Vaticinio = this.vaticinio.value;
+    console.log(vaticinio);
+    
     this.userService.crearVaticinio(vaticinio).subscribe((res:any) => {
       this.toastr.success('Vaticinio Enviado', 'Vaticinio', {
         timeOut: 3000
       });
-      window.location.reload();
+      console.log(res);
+      
     },
-
-  err => {
+  error => {
     this.toastr.error("No se pudo realizar el vaticinio", 'Fail', {
       timeOut: 3000,  positionClass: 'toast-top-center',
     });
-    // console.log(err.error.message);
+    console.log(error.status);
   })
   }
 
@@ -96,7 +97,6 @@ partidos: Partido= new Partido();
 obtenerPartidos(id:number){
   this.userService.partidoFindByID(id).subscribe((data:Partido)=>{
   this.partidos=data;
-  console.log(this.partidos);
 }, 
 error =>{
   this.toastr.error('Error al aceptar Usuario:'+error.status, 'Fail', {

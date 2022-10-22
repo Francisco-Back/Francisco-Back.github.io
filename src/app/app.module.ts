@@ -29,6 +29,7 @@ import { ListadoVaticiniosComponent } from './listado-vaticinios/listado-vaticin
 import { AllLigasComponent } from './all-ligas/all-ligas.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { VaticinioComponent } from './vaticinio/vaticinio.component';
+import { SortByPipe } from './sort-by.pipe';
 
 
 @NgModule({
@@ -51,6 +52,7 @@ import { VaticinioComponent } from './vaticinio/vaticinio.component';
     ListadoVaticiniosComponent,
     AllLigasComponent,
     VaticinioComponent,
+    SortByPipe,
   ],
   imports: [
     BrowserModule,

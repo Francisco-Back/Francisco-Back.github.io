@@ -96,11 +96,12 @@ obtenerLiga(){
 
   //Actualizar Marcaje
   Marcaje(marcaje1:String,marcaje2:String){
+    console.log("lo que le envio a marcaje",marcaje1,marcaje2,this.idpartido,this.LigasId);
       this.userService.updateMarcajePartido(this.idpartido,Number(marcaje1),Number(marcaje2),this.LigasId).subscribe((data:Partido)=>{
         this.toastr.success('Marcador Actualizado', 'OK', {
           timeOut: 3000
         });
-        window.location.reload();
+        //window.location.reload();
     },
     error =>{
       this.toastr.error('Error al actualizar Marcador:'+error.status, 'Fail', {

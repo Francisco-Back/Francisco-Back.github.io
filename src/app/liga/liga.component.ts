@@ -68,6 +68,7 @@ partidos: Array<any>=[];
           let usuario ={IdUnion:Data1.id,Estado:Data1.estado,Nombre:Data1.usuario.nombre, Correo:Data1.usuario.email, Puntaje:Data1.puntaje, Ranking: Data1.ranking };
           if(usuario.Estado=='Pendiente'){
             this.usuariosPendientes.push(usuario);
+            
           }else if(usuario.Estado=='Aceptado'){
             this.usuarios.push(usuario);
           }
@@ -80,6 +81,7 @@ partidos: Array<any>=[];
 
     this.userService.allPartidos().subscribe((data: Partido[])=>{
       this.partidos = data;
+      console.log(this.partidos);
     });
 
   }

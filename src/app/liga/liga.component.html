@@ -97,7 +97,7 @@
         <tr>
           <th scope="col">Nombre</th>
           <th scope = "col">User</th>
-          <th scope="col">Ranking</th>
+          <th scope="col">Porcentaje</th>
           <th scope="col">Punteo</th>
         </tr>
         </thead>
@@ -105,7 +105,7 @@
         <tr class="table-secondary" *ngFor="let usuario of usuarios">
           <td>{{usuario.Nombre}}</td>
           <td>{{usuario.Correo}}</td>
-          <td>{{usuario.Ranking}}</td>
+          <th scope="row" (sort)="usuario.Ranking">{{usuario.Ranking}}%</th>
           <td>{{usuario.Puntaje}}</td>
         </tr>
         </tbody>
@@ -126,7 +126,7 @@
         <thead>
          <tr>
            <th>Grupo</th>
-           <th>{{Jr1.grupos1}}</th>
+           <th>{{Jr1.grupos}}</th>
            <th>Informacion</th>
            <th>Opciones</th>
          </tr>

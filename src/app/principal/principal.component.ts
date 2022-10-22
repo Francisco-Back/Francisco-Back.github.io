@@ -44,14 +44,11 @@ export class PrincipalComponent implements OnInit {
   ngOnInit(): void {
     this.userEmail= this.tokenService.getUserName();
     //this.obtenerUser();
-    this.obtenerPartidos();
     this.SetUserID();
    //
   }
 
   SetUserID(): void {
-    console.log("Si inicia");
-    console.log("Datos de user"+this.userService.getuserID(this.userEmail));
     this.userService.getuserID(this.userEmail).subscribe(
       data => {
         this.isLogged = true;
@@ -62,7 +59,6 @@ export class PrincipalComponent implements OnInit {
           timeOut: 3000
         });
         this.userID = Number(this.userIDService.getIduser());
-        console.log("datos Cargados")
         this.obtenerLiga();
         this.obtenerLigaUser();
       },
@@ -75,65 +71,22 @@ export class PrincipalComponent implements OnInit {
         // console.log(err.error.message);
       }
     );
-    console.log(this.userID);
   }
 
 
 
-  obtenerPartidos(){
-
-  const starJor1 = ref(this.database, 'Partidos/Jornada1/');
-  onValue(starJor1, (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
-      const Data1 = childSnapshot.val();
-      let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
-        pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
-      this.Jornada1.push(partidos);
-    });
-
-
-
-});
-const starJor2 = ref(this.database, 'Partidos/Jornada2/');
-  onValue(starJor2, (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
-      const Data1 = childSnapshot.val();
-      let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
-        pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
-      this.Jornada2.push(partidos);
-    });
-
-
-});
-
-const starJor3 = ref(this.database, 'Partidos/Jornada3/');
-  onValue(starJor3, (snapshot) => {
-    snapshot.forEach((childSnapshot) => {
-      const Data1 = childSnapshot.val();
-      let partidos ={bandera1:Data1.Bandera1,bandera2:Data1.Bandera2,pais1:Data1.Pais1,
-        pais2:Data1.Pais2, horario:Data1.Horario, fecha:Data1.Fecha,grupos1:Data1.Tamaño};
-      this.Jornada3.push(partidos);
-    });
-
-
-});
-
-  }
-
+  
   //Obtener liga Admin
   obtenerLiga(){
-    console.log("obtenerLiga "+this.userID);
    this.userService.ligasFindByUserId(this.userID).subscribe((data: Liga[])=>{
 
         this.ligas = data;
-        console.log(this.ligas+"Ligas");
     });
     }
 
 //Obtener liga User
 
     obtenerLigaUser(){
-      console.log("obtenerLigaUser "+this.userID);
 
       this.userService.UserLigasFindByUser(this.userID).subscribe((data: LigaUser[])=>{
         data.forEach((childSnapshot) => {
@@ -143,7 +96,6 @@ const starJor3 = ref(this.database, 'Partidos/Jornada3/');
           this.ligaUser.push(liga);
         }
         });
-        console.log(this.ligaUser);
     });
     }
   /*obtenerUser(){
