@@ -81,8 +81,8 @@ partidos: Partido= new Partido();
       this.toastr.success('Vaticinio Enviado', 'Vaticinio', {
         timeOut: 3000
       });
-    //this.router.navigateByUrl('/principal');
-  },
+      window.location.reload();
+    },
 
   err => {
     this.toastr.error("No se pudo realizar el vaticinio", 'Fail', {
