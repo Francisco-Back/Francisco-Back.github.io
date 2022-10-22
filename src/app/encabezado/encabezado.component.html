@@ -24,23 +24,15 @@
         <li class="nav-item">
           <a class="nav-link " [routerLink]="['partidos']" [routerLinkActive]="'active'">Partidos</a>
         </li>
-        <li class="nav-item" *ngIf="!isLogged" >
-          <a class="nav-link " [routerLink]="['register']" [routerLinkActive]="'active'">Registrarse</a>
-        </li>
-        <li class="nav-item" *ngIf="!isLogged" >
-          <a class="nav-link" [routerLink]="['login']" [routerLinkActive]="'active'">Login</a>
-        </li>
+
         <li class="nav-item" *ngIf="isLogged" >
-          <a class="nav-link " [routerLink]="['principal']" [routerLinkActive]="'active'">Principal</a>
+          <a class="nav-link " [routerLink]="['principal']" [routerLinkActive]="'active'">Mis Ligas</a>
         </li>
         <!--<li class="nav-item" *ngIf="isLogged">
           <a class="nav-link" [routerLink]="['confirmacionliga']" [routerLinkActive]="'active'">ConfirmacionLiga</a>
         </li>-->
         <li class="nav-item" *ngIf="isLogged">
-          <a class="nav-link" [routerLink]="['ligas']" [routerLinkActive]="'active'">Ligas</a>
-        </li>
-        <li class="nav-item"  *ngIf="isLogged" (click)="onLogOut()">
-          <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+          <a class="nav-link" [routerLink]="['ligas']" [routerLinkActive]="'active'">Buscar Ligas</a>
         </li>
        <!-- <li class="nav-item" *ngIf="isLogged">
           <a class="nav-link" [routerLink]="['listado-vaticinios']" [routerLinkActive]="'active'">Listado Vaticinios</a>
@@ -48,6 +40,15 @@
         <li class="nav-item" *ngIf="isLogged">
           <a class="nav-link" [routerLink]="['vaticinio']" [routerLinkActive]="'active'">vaticinio</a>-->
       </ul>
+      <ul class="navbar-nav  mb-2 mb-md-0">  
+      <button class="btn  btn-sm btn-light nav-item"  *ngIf="!isLogged" >
+        <a class="nav-link text-black"  style="cursor: pointer;" [routerLink]="['login']" [routerLinkActive]="'active'" ><i class="fas fa-door-open" ></i> Login </a>
+      </button>
+        <a class="nav-link text-white" [routerLink]="['register']" [routerLinkActive]="'active'" *ngIf="!isLogged">Registrarse</a>
+     </ul>
+      <button class="nav-item btn btn-success"  *ngIf="isLogged" (click)="onLogOut()">
+        <a class="nav-link" style="cursor: pointer;"><i class="fas fa-door-open" ></i> Cerrar Sesión</a>
+      </button>
     </div>
   </div>
 </nav>
