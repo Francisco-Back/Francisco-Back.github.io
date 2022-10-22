@@ -90,7 +90,7 @@ partidos: Array<any>=[];
       this.toastr.success('Usuario Aceptado', 'OK', {
         timeOut: 3000
       });
-
+      window.location.reload();
   },
   error =>{
     this.toastr.error('Error al aceptar Usuario:'+error.status, 'Fail', {
@@ -105,6 +105,7 @@ partidos: Array<any>=[];
       this.toastr.success('Usuario Rechazado', 'OK', {
         timeOut: 3000
       });
+      window.location.reload();
 
   },
   error =>{

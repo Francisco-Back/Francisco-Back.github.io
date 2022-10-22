@@ -100,7 +100,7 @@ obtenerLiga(){
         this.toastr.success('Marcador Actualizado', 'OK', {
           timeOut: 3000
         });
-
+        window.location.reload();
     },
     error =>{
       this.toastr.error('Error al actualizar Marcador:'+error.status, 'Fail', {
