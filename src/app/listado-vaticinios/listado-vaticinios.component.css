@@ -24,3 +24,11 @@
   font-size: 25px;
   color: #FFFFFF;
 }
+
+
+.button1{
+  background-color: #56042C;
+  color: white;
+  border-color: #FEC310;
+  cursor: pointer;
+}
